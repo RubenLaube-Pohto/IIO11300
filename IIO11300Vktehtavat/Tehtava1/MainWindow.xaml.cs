@@ -54,15 +54,4 @@ namespace Tehtava1
       Application.Current.Shutdown();
     }
   }
-
-  public class BusinessLogicWindow
-    {
-    /// <summary>
-    /// CalculatePerimeter calculates the perimeter of a window
-    /// </summary>
-    public static double CalculatePerimeter(double widht, double height)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
 }
