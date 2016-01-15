@@ -36,8 +36,12 @@ namespace Tehtava1
             //TODO
             try
             {
-                double result;
-                result = BusinessLogicWindow.CalculatePerimeter(1, 1);
+                double width, height, borderWidth, result;
+                width = double.Parse(tbWindowWidth.Text);
+                height = double.Parse(tbWindowHeight.Text);
+                borderWidth = double.Parse(tbBorderWidth.Text);
+                result = BusinessLogicWindow.CalculatePerimeter(width, height);
+                lblDisplay_BorderLength.Content = result;
             }
             catch (Exception ex)
             {
