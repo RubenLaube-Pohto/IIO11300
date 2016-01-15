@@ -1,8 +1,8 @@
 ﻿/*
 * Copyright (C) JAMK/IT/Esa Salmikangas
 * This file is part of the IIO11300 course project.
-* Created: 12.1.2016 Modified: 13.1.2016
-* Authors: Tero ,Esa Salmikangas
+* Created: 12.1.2016 Modified: 15.1.2016
+* Authors: Ruben Laube-Pohto, Esa Salmikangas
 */
 using System;
 using System.Collections.Generic;
@@ -40,8 +40,15 @@ namespace Tehtava1
                 width = double.Parse(tbWindowWidth.Text);
                 height = double.Parse(tbWindowHeight.Text);
                 borderWidth = double.Parse(tbBorderWidth.Text);
+
+                result = BusinessLogicWindow.CalculateArea(width, height);
+                lblDisplay_WindowArea.Content = result;
+
                 result = BusinessLogicWindow.CalculatePerimeter(width, height);
                 lblDisplay_BorderLength.Content = result;
+
+                result = BusinessLogicWindow.CalculateBorderArea(width, height, borderWidth);
+                lblDisplay_BorderArea.Content = result;
             }
             catch (Exception ex)
             {
