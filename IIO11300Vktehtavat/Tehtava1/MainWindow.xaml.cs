@@ -33,7 +33,6 @@ namespace Tehtava1
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-            //TODO
             try
             {
                 double width, height, borderWidth, result;

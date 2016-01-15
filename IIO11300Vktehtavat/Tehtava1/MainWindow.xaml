@@ -13,11 +13,11 @@
         <TextBox x:Name="tbWindowHeight" HorizontalAlignment="Left" Height="23" Margin="361,53,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblBorderWidth" Content="Karmipuun leveys (W):" HorizontalAlignment="Left" Margin="173,77,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBorderWidth" HorizontalAlignment="Left" Height="23" Margin="361,81,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblDisplay_WindowArea" Content="" HorizontalAlignment="Left" Margin="364,157,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDisplay_WindowArea" Content="tulos 1" HorizontalAlignment="Left" Margin="364,157,0,0" VerticalAlignment="Top" Background="#FFB4BDF3"/>
         <Label x:Name="lblWindowArea" Content="Ikkunan pinta-ala:" HorizontalAlignment="Left" Margin="208,157,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDisplay_BorderLength" Content="" HorizontalAlignment="Left" Margin="364,181,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDisplay_BorderLength" Content="tulos 2" HorizontalAlignment="Left" Margin="364,181,0,0" VerticalAlignment="Top" Background="#FFB4BDF3"/>
         <Label x:Name="lblBorderLength" Content="Karmin piiri:" HorizontalAlignment="Left" Margin="254,180,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDisplay_BorderArea" Content="" HorizontalAlignment="Left" Margin="364,205,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDisplay_BorderArea" Content="tulos 3" HorizontalAlignment="Left" Margin="364,205,0,0" VerticalAlignment="Top" Background="#FFB4BDF3"/>
         <Label x:Name="lblBorderArea" Content="Karmin pinta-ala:" HorizontalAlignment="Left" Margin="214,205,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCalculate" Content="Laske pinta-ala ja piiri" HorizontalAlignment="Left" Margin="254,129,0,0" VerticalAlignment="Top" Width="195" Click="btnCalculate_Click"/>
     </Grid>
