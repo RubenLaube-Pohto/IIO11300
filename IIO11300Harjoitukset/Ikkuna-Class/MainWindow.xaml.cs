@@ -67,8 +67,8 @@ namespace JAMK.IT.IIO11300
         private void btnCalculateOO_Click(object sender, RoutedEventArgs e)
         {
             Ikkuna ikk = new Ikkuna();
-            ikk.korkeus = double.Parse(tbWindowHeight.Text);
-            ikk.leveys = double.Parse(tbWindowWidth.Text);
+            ikk.Korkeus = double.Parse(tbWindowHeight.Text);
+            ikk.Leveys = double.Parse(tbWindowWidth.Text);
             lblDisplay_WindowArea.Content = ikk.LaskePintaAla().ToString();
         }
     }

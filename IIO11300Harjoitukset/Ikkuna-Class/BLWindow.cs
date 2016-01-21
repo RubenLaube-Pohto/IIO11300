@@ -15,6 +15,52 @@ namespace JAMK.IT.IIO11300
 {
     public class Ikkuna
     {
+        #region Muutuujat (variables)
+        private double korkeus, leveys;
+        #endregion
+
+        // Voi lisätä nopeasti 'propfull' code snipet:llä
+        #region Ominaisuudet (properties)
+        public double Korkeus
+        {
+            get
+            {
+                return korkeus;
+            }
+            set
+            {
+                // Tässä voisi tehdä tarkistuksia
+                korkeus = value;
+            }
+        }
+        public double Leveys
+        {
+            get
+            {
+                return leveys;
+            }
+            set
+            {
+                // Tässä voisi tehdä tarkistuksia
+                leveys = value;
+            }
+        }
+        #endregion
+
+        #region Konstruktorit (constructors)
+        #endregion
+
+        #region Metodit (methods)
+        public double LaskePintaAla()
+        {
+            return korkeus * leveys;
+        }
+        #endregion
+    }
+
+    public class IkkunaVer0
+    {
+        // ei hyvä tapa käyttää julkisia muuttujia
         public double korkeus, leveys;
 
         public double LaskePintaAla()
