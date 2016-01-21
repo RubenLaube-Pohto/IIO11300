@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava1", "Tehtava1\Tehtav
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H1MediaPlayer", "H1MediaPlayer\H1MediaPlayer.csproj", "{A85D5805-05B3-4A9D-AF7E-7E737651FAD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ikkuna-Class", "..\IIO11300Harjoitukset\Ikkuna-Class\Ikkuna-Class.csproj", "{1B007CE1-C6E3-411D-B04E-321AD074F37C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A85D5805-05B3-4A9D-AF7E-7E737651FAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85D5805-05B3-4A9D-AF7E-7E737651FAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85D5805-05B3-4A9D-AF7E-7E737651FAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B007CE1-C6E3-411D-B04E-321AD074F37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B007CE1-C6E3-411D-B04E-321AD074F37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B007CE1-C6E3-411D-B04E-321AD074F37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B007CE1-C6E3-411D-B04E-321AD074F37C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
