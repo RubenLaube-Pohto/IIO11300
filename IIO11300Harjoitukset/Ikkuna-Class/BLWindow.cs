@@ -45,6 +45,11 @@ namespace JAMK.IT.IIO11300
                 leveys = value;
             }
         }
+        // On päätetty, että pinta-ala ja hinta ovat read-only ominaisuuksia
+        public double PintaAla
+        {
+            get { return korkeus * leveys; }
+        }
         #endregion
 
         #region Konstruktorit (constructors)

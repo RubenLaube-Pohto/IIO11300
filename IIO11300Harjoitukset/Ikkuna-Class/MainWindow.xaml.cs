@@ -69,7 +69,10 @@ namespace JAMK.IT.IIO11300
             Ikkuna ikk = new Ikkuna();
             ikk.Korkeus = double.Parse(tbWindowHeight.Text);
             ikk.Leveys = double.Parse(tbWindowWidth.Text);
+            // Pinta-ala metodilla
             lblDisplay_WindowArea.Content = ikk.LaskePintaAla().ToString();
+            // Pinta-ala ominaisuutena
+            lblDisplay_WindowArea.Content = ikk.PintaAla.ToString();
         }
     }
 }
