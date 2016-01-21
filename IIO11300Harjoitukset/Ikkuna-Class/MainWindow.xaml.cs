@@ -1,7 +1,7 @@
 ﻿/*
 * Copyright (C) JAMK/IT/Esa Salmikangas
 * This file is part of the IIO11300 course project.
-* Created: 12.1.2016 Modified: 15.1.2016
+* Created: 12.1.2016 Modified: 21.1.2016
 * Authors: Ruben Laube-Pohto, Esa Salmikangas
 */
 using System;
@@ -63,5 +63,13 @@ namespace JAMK.IT.IIO11300
     {
       Application.Current.Shutdown();
     }
-  }
+
+        private void btnCalculateOO_Click(object sender, RoutedEventArgs e)
+        {
+            Ikkuna ikk = new Ikkuna();
+            ikk.korkeus = double.Parse(tbWindowHeight.Text);
+            ikk.leveys = double.Parse(tbWindowWidth.Text);
+            lblDisplay_WindowArea.Content = ikk.LaskePintaAla().ToString();
+        }
+    }
 }

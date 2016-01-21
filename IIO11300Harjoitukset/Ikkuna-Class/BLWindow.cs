@@ -13,6 +13,16 @@ using System.Threading.Tasks;
 // namespace vaihdettu nimeämisohjeen mukaiseksi
 namespace JAMK.IT.IIO11300
 {
+    public class Ikkuna
+    {
+        public double korkeus, leveys;
+
+        public double LaskePintaAla()
+        {
+            return korkeus * leveys;
+        }
+    }
+
     public class BusinessLogicWindow
     {
     /// <summary>

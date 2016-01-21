@@ -19,6 +19,6 @@
         <Label x:Name="lblBorderLength" Content="Karmin piiri:" HorizontalAlignment="Left" Margin="254,180,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDisplay_BorderArea" Content="tulos 3" HorizontalAlignment="Left" Margin="364,205,0,0" VerticalAlignment="Top" Background="#FFB4BDF3"/>
         <Label x:Name="lblBorderArea" Content="Karmin pinta-ala:" HorizontalAlignment="Left" Margin="214,205,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCalculate" Content="Laske pinta-ala ja piiri" HorizontalAlignment="Left" Margin="254,129,0,0" VerticalAlignment="Top" Width="195" Click="btnCalculate_Click"/>
+        <Button x:Name="btnCalculate" Content="Laske pinta-ala ja piiri" HorizontalAlignment="Left" Margin="254,129,0,0" VerticalAlignment="Top" Width="195" Click="btnCalculateOO_Click"/>
     </Grid>
 </Window>
