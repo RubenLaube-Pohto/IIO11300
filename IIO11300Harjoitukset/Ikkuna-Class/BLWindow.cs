@@ -50,6 +50,10 @@ namespace JAMK.IT.IIO11300
         {
             get { return korkeus * leveys; }
         }
+        public float Hinta
+        {
+            get { return LaskeHinta(); }
+        }
         #endregion
 
         #region Konstruktorit (constructors)
@@ -59,6 +63,15 @@ namespace JAMK.IT.IIO11300
         public double LaskePintaAla()
         {
             return korkeus * leveys;
+        }
+        private float LaskeHinta()
+        {
+            // Hinta lasketaan työn, materiaalin käytön ja katteen mukaan.
+            float kate = 100;
+            float tyo = 200;
+            float materiaali = 100 * ((float)leveys * (float)korkeus / 1000000);
+
+            return kate + tyo + materiaali;
         }
         #endregion
     }
