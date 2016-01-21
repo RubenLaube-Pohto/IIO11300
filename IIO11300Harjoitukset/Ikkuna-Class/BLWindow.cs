@@ -1,7 +1,7 @@
 ﻿/*
 * Copyright (C) JAMK/IT/Esa Salmikangas
 * This file is part of the IIO11300 course project.
-* Created: 12.1.2016 Modified: 15.1.2016
+* Created: 12.1.2016 Modified: 21.1.2016
 * Authors: Ruben Laube-Pohto, Esa Salmikangas
 */
 using System;
@@ -10,7 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tehtava1
+// namespace vaihdettu nimeämisohjeen mukaiseksi
+namespace JAMK.IT.IIO11300
 {
     public class BusinessLogicWindow
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{1B007CE1-C6E3-411D-B04E-321AD074F37C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ikkuna_Class</RootNamespace>
+    <RootNamespace>JAMK.IT.IIO11300</RootNamespace>
     <AssemblyName>Ikkuna-Class</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
