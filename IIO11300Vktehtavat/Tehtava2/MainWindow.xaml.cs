@@ -24,5 +24,11 @@ namespace Tehtava2
         {
             InitializeComponent();
         }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbDrawns.Text = "1";
+            tbNumbers.Text = "";
+        }
     }
 }
