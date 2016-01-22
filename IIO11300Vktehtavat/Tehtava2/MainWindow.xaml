@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="WinLotto" Height="350" Width="276.133">
     <Grid>
-        
+        <Label x:Name="lblGame" Content="Choose the game" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDrawns" Content="Number of drawns" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDraw" Content="Draw" HorizontalAlignment="Left" Margin="48,90,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="141,90,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="cbGame" HorizontalAlignment="Left" Margin="128,14,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbDrawns" HorizontalAlignment="Left" Height="23" Margin="128,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblNumbers" Content="Randomly drawn numbers:" HorizontalAlignment="Left" Margin="16,125,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNumbers" HorizontalAlignment="Left" Height="101" Margin="16,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="232"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="93,278,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
