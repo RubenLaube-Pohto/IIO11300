@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * This file is part of the IIO11300 coursework.
+ *
+ * Created: 22.1.2016 Modified: 23.1.2016
+ * Authors: Ruben Laube-Pohto
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tehtava2
+namespace JAMK.IT.IIO11300
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

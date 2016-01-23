@@ -1,10 +1,16 @@
-﻿using System;
+﻿/*
+ * This file is part of the IIO11300 coursework.
+ *
+ * Created: 22.1.2016 Modified: 23.1.2016
+ * Authors: Ruben Laube-Pohto
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tehtava2
+namespace JAMK.IT.IIO11300
 {
     public class Lotto
     {
@@ -39,6 +45,7 @@ namespace Tehtava2
             {
                 switch (type)
                 {
+                    #region Suomi-lotto
                     case "Suomi":
                     {
                         int[] numbers = new int[39];
@@ -50,6 +57,8 @@ namespace Tehtava2
                         for (int j = 0; j < 7; j++)
                             result += (rndNumbers[j] + " ");
                     } break;
+                    #endregion
+                    #region VikingLotto
                     case "VikingLotto":
                     {
                         int[] numbers = new int[48];
@@ -61,6 +70,8 @@ namespace Tehtava2
                         for (int j = 0; j < 6; j++)
                             result += (rndNumbers[j] + " ");
                     } break;
+                    #endregion
+                    #region Eurojackpot
                     case "Eurojackpot":
                     {
                         // Main numbers
@@ -84,7 +95,10 @@ namespace Tehtava2
                         for (int j = 0; j < 2; j++)
                             result += (rndStarNumbers[j] + " ");
                     } break;
+                    #endregion
+                    #region default
                     default: { } break;
+                    #endregion
                 }
                 result += '\n';
             }
