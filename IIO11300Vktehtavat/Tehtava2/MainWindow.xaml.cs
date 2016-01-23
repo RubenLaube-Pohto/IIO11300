@@ -30,5 +30,26 @@ namespace Tehtava2
             tbDrawns.Text = "1";
             tbNumbers.Text = "";
         }
+
+        private void btnDraw_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string type = cbGame.SelectedValue.ToString();
+                int drawns = int.Parse(tbDrawns.Text);
+
+                Lotto lotto = new Lotto(type);
+                tbNumbers.Text = lotto.drawNumbers(drawns);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
