@@ -39,7 +39,8 @@ namespace Tehtava2
             {
                 switch (type)
                 {
-                    case "Suomi": {
+                    case "Suomi":
+                    {
                         int[] numbers = new int[39];
                         for (int j = 0; j < numbers.Length; j++)
                             numbers[j] = j + 1;
@@ -48,14 +49,44 @@ namespace Tehtava2
                         // Pick first 7 numbers
                         for (int j = 0; j < 7; j++)
                             result += (rndNumbers[j] + " ");
-                        result += '\n';
                     } break;
-                    case "VikingLotto": {
+                    case "VikingLotto":
+                    {
+                        int[] numbers = new int[48];
+                        for (int j = 0; j < numbers.Length; j++)
+                            numbers[j] = j + 1;
+                        // Shuffle numbers
+                        int[] rndNumbers = numbers.OrderBy(x => rnd.Next()).ToArray();
+                        // Pick first 6 numbers
+                        for (int j = 0; j < 6; j++)
+                            result += (rndNumbers[j] + " ");
+                    } break;
+                    case "Eurojackpot":
+                    {
+                        // Main numbers
+                        int[] numbers = new int[50];
+                        for (int j = 0; j < numbers.Length; j++)
+                            numbers[j] = j + 1;
+                        // Shuffle numbers
+                        int[] rndNumbers = numbers.OrderBy(x => rnd.Next()).ToArray();
+                        // Pick first 5 numbers
+                        for (int j = 0; j < 5; j++)
+                            result += (rndNumbers[j] + " ");
 
-                        } break;
-                    case "Eurojackpot": { } break;
+                        // Star numbers
+                        result += "* ";
+                        int[] starNumbers = new int[8];
+                        for (int j = 0; j < starNumbers.Length; j++)
+                            starNumbers[j] = j + 1;
+                        // Shuffle numbers
+                        int[] rndStarNumbers = starNumbers.OrderBy(x => rnd.Next()).ToArray();
+                        // Pick first 2 numbers
+                        for (int j = 0; j < 2; j++)
+                            result += (rndStarNumbers[j] + " ");
+                    } break;
                     default: { } break;
                 }
+                result += '\n';
             }
 
             return result;
