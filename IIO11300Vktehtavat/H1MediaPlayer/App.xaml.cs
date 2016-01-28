@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace H1MediaPlayer
+namespace JAMK.IT.MediaPlayer
 {
     /// <summary>
     /// Interaction logic for App.xaml

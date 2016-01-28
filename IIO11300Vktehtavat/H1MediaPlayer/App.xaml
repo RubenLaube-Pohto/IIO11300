@@ -1,7 +1,7 @@
-﻿<Application x:Class="H1MediaPlayer.App"
+﻿<Application x:Class="JAMK.IT.MediaPlayer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:H1MediaPlayer"
+             xmlns:local="clr-namespace:JAMK.IT.MediaPlayer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

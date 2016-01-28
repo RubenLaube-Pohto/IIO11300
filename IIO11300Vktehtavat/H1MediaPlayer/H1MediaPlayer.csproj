@@ -7,7 +7,7 @@
     <ProjectGuid>{A85D5805-05B3-4A9D-AF7E-7E737651FAD9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>H1MediaPlayer</RootNamespace>
+    <RootNamespace>JAMK.IT.MediaPlayer</RootNamespace>
     <AssemblyName>H1MediaPlayer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
