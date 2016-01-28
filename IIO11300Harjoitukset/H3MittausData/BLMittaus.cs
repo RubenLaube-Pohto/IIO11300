@@ -12,19 +12,22 @@ namespace JAMK.IT.IIO11300
 {
     public class MittausData
     {
+        #region VARIABLES
         private string kello;
+        private string mittaus;
+        #endregion
+        #region PROPERTIES
         public string Kello
         {
             get { return kello; }
             set { kello = value; }
         }
-        private string mittaus;
-
         public string Mittaus
         {
             get { return mittaus; }
             set { mittaus = value; }
         }
+        #endregion
         #region CONSTRUCTORS
         //luokalle tehdään kaksi konstruktoria
         public MittausData()
