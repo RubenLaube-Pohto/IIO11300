@@ -37,7 +37,7 @@ namespace JAMK.IT.IIO11300
         }
         #endregion
         #region Methods
-        public string drawNumbers(int lines = 1)
+        public string DrawNumbers(int lines = 1)
         {
             string result = "";
 

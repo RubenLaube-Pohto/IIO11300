@@ -45,7 +45,7 @@ namespace JAMK.IT.IIO11300
                 int drawns = int.Parse(tbDrawns.Text);
 
                 Lotto lotto = new Lotto(type);
-                tbNumbers.Text = lotto.drawNumbers(drawns);
+                tbNumbers.Text = lotto.DrawNumbers(drawns);
             }
             catch (Exception ex)
             {
