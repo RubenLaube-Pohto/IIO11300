@@ -16,27 +16,27 @@ using JAMK.IT.IIO11300;
 
 namespace H3MittausData
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
-  public partial class MainWindow : Window
-  {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-      InitializeComponent();
-      IniMyStuff();
-    }
-    private void IniMyStuff()
-    {
-      //omat ikkunaan liittyvät alustukset
-      txtToday.Text = DateTime.Today.ToShortDateString();
-    }
+        public MainWindow()
+        {
+            InitializeComponent();
+            IniMyStuff();
+        }
+        private void IniMyStuff()
+        {
+            //omat ikkunaan liittyvät alustukset
+            txtToday.Text = DateTime.Today.ToShortDateString();
+        }
 
-    private void btnSaveData_Click(object sender, RoutedEventArgs e)
-    {
-      //luodaan uusi mittausdata olio ja näytetään se käyttäjälle
-      MittausData md = new MittausData(txtClock.Text, txtData.Text);
-      lbData.Items.Add(md);
+        private void btnSaveData_Click(object sender, RoutedEventArgs e)
+        {
+            //luodaan uusi mittausdata olio ja näytetään se käyttäjälle
+            MittausData md = new MittausData(txtClock.Text, txtData.Text);
+            lbData.Items.Add(md);
+        }
     }
-  }
 }
