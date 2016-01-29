@@ -7,7 +7,7 @@
     <ProjectGuid>{B28D433A-EBD3-44B6-80C6-0371DEF907CA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tehtava3</RootNamespace>
+    <RootNamespace>JAMK.IT.IIO11300</RootNamespace>
     <AssemblyName>Tehtava3</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
