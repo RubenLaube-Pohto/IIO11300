@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3MittausData", "..\IIO1130
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava3", "Tehtava3\Tehtava3.csproj", "{B28D433A-EBD3-44B6-80C6-0371DEF907CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVerySimpleTextFileDemo", "..\IIO11300Harjoitukset\AVerySimpleTextFileDemo\AVerySimpleTextFileDemo.csproj", "{BD0B69C6-BA23-4CA5-BA5E-7F10FC24968F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B28D433A-EBD3-44B6-80C6-0371DEF907CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28D433A-EBD3-44B6-80C6-0371DEF907CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28D433A-EBD3-44B6-80C6-0371DEF907CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD0B69C6-BA23-4CA5-BA5E-7F10FC24968F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0B69C6-BA23-4CA5-BA5E-7F10FC24968F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0B69C6-BA23-4CA5-BA5E-7F10FC24968F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0B69C6-BA23-4CA5-BA5E-7F10FC24968F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
