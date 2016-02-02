@@ -37,8 +37,7 @@ namespace JAMK.IT.IIO11300
             {
                 string dir = tbSource_dir.Text;
 
-                Combiner combiner = new Combiner();
-                FileInfo[] fiArray = combiner.getTxtFiles(dir);
+                FileInfo[] fiArray = Combiner.getTxtFiles(dir);
 
                 string foundFiles = "";
                 foreach (FileInfo fi in fiArray) {
@@ -48,6 +47,23 @@ namespace JAMK.IT.IIO11300
 
                 tbFound_files.Text = foundFiles;
                 tbStatus.Text = "Found " + fiArray.Length.ToString() + " files.";
+            }
+            catch (Exception ex)
+            {
+                tbStatus.Text = ex.Message;
+            }
+        }
+
+        private void btnCombine_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string sourceDir = tbSource_dir.Text;
+                string destDir = tbDest_dir.Text;
+
+                Combiner.writeToOneFile(sourceDir, destDir);
+
+                tbStatus.Text = "Files combined successfully.";
             }
             catch (Exception ex)
             {

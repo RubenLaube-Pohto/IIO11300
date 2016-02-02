@@ -24,10 +24,10 @@
                     <TextBlock Text="Tulostiedosto"></TextBlock>
                     <TextBox x:Name="tbDest_dir" Width="111" Margin="13,0,0,0"></TextBox>
                 </StackPanel>
-                <Button x:Name="btnCombine" Content="Yhdistä tiedostot" Margin="0,5,0,0"></Button>
+                <Button x:Name="btnCombine" Content="Yhdistä tiedostot" Margin="0,5,0,0" Click="btnCombine_Click"></Button>
             </StackPanel>
             <StackPanel Margin="-7,15,0,0">
-                <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="0" Text="Tähän päivittyy status"></TextBlock>
+                <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="0" Text="Aloita antamalla hakemisto."></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
