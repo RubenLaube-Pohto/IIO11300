@@ -1,10 +1,11 @@
 ﻿/*
  * Weekly Task 3
- * Created: 29.1.2016
+ * Created: 29.1.2016 Modified: 02.02.2016
  * Author: Ruben Laube-Pohto
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,21 @@ namespace JAMK.IT.IIO11300
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnGet_files_Click(object sender, RoutedEventArgs e)
+        {
+            string dir = tbSource_dir.Text;
+            DirectoryInfo di = new DirectoryInfo(dir);
+            FileInfo[] fiArray = di.GetFiles("*.txt");
+            string foundFiles = "";
+
+            foreach (FileInfo fi in fiArray) {
+                foundFiles += fi.FullName;
+                foundFiles += '\n';
+            }
+
+            tbFound_files.Text = foundFiles;
         }
     }
 }
