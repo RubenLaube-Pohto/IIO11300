@@ -33,17 +33,26 @@ namespace JAMK.IT.IIO11300
 
         private void btnGet_files_Click(object sender, RoutedEventArgs e)
         {
-            string dir = tbSource_dir.Text;
-            DirectoryInfo di = new DirectoryInfo(dir);
-            FileInfo[] fiArray = di.GetFiles("*.txt");
-            string foundFiles = "";
+            try
+            {
+                string dir = tbSource_dir.Text;
 
-            foreach (FileInfo fi in fiArray) {
-                foundFiles += fi.FullName;
-                foundFiles += '\n';
+                Combiner combiner = new Combiner();
+                FileInfo[] fiArray = combiner.getTxtFiles(dir);
+
+                string foundFiles = "";
+                foreach (FileInfo fi in fiArray) {
+                    foundFiles += fi.FullName;
+                    foundFiles += '\n';
+                }
+
+                tbFound_files.Text = foundFiles;
+                tbStatus.Text = "Found " + fiArray.Length.ToString() + " files.";
             }
-
-            tbFound_files.Text = foundFiles;
+            catch (Exception ex)
+            {
+                tbStatus.Text = ex.Message;
+            }
         }
     }
 }
