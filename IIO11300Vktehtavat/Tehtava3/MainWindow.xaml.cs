@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,7 @@ namespace JAMK.IT.IIO11300
 
                 tbFound_files.Text = foundFiles;
                 tbStatus.Text = "Found " + fiArray.Length.ToString() + " files.";
+                tbDest_dir.Text = ConfigurationManager.AppSettings["DestFilePath"];
             }
             catch (Exception ex)
             {
