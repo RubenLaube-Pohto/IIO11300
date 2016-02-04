@@ -122,6 +122,28 @@ namespace JAMK.IT.IIO11300
                 throw;
             }
         }
+        public static List<MittausData> LoadFromFileV2(string filename)
+        {
+            List<MittausData> read = new List<MittausData>();
+
+            using (StreamReader sr = File.OpenText(filename))
+            {
+                MittausData md;
+                string rivi = "";
+
+                while ((rivi = sr.ReadLine()) != null)
+                {
+                    if (rivi.Length > 3 && rivi.Contains("="))
+                    {
+                        string[] split = rivi.Split(new char[] { '=' });
+                        md = new MittausData(split[0], split[1]);
+                        read.Add(md);
+                    }
+                }
+            }
+
+            return read;
+        }
         #endregion
     }
 }

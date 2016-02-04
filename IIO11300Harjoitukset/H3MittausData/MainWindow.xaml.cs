@@ -71,7 +71,7 @@ namespace H3MittausData
         {
             try
             {
-                measureds = MittausData.LoadFromFile(txtFileName.Text);
+                measureds = MittausData.LoadFromFileV2(txtFileName.Text);
                 ApplyChanges();
                 MessageBox.Show("Tiedot luettu onnistuneesti tiedostosta " + txtFileName.Text);
             }
