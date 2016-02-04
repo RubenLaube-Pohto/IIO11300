@@ -83,7 +83,14 @@ namespace H3MittausData
 
         private void btnSerialize_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                JAMK.IT.IIO11300.Serialisointi.SerialisoiXml(txtFileName.Text, measureds);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDeserialize_Click(object sender, RoutedEventArgs e)
