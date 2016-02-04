@@ -86,6 +86,7 @@ namespace H3MittausData
             try
             {
                 JAMK.IT.IIO11300.Serialisointi.SerialisoiXml(txtFileName.Text, measureds);
+                MessageBox.Show("Tiedot onnistuneesti serialisoitu tiedostoon " + txtFileName.Text);
             }
             catch (Exception ex)
             {
@@ -99,6 +100,36 @@ namespace H3MittausData
             {
                 measureds = JAMK.IT.IIO11300.Serialisointi.DeSerialisoiXml(txtFileName.Text);
                 ApplyChanges();
+                MessageBox.Show("Tiedot onnistuneesti deserialisoitu tiedostosta " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSerializeBin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                JAMK.IT.IIO11300.Serialisointi.Serialisoi(txtFileName.Text, measureds);
+                MessageBox.Show("Tiedot onnistuneesti serialisoitu tiedostoon " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeserializeBin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                object obj = new object();
+                JAMK.IT.IIO11300.Serialisointi.DeSerialisoi(txtFileName.Text, ref obj);
+                measureds = (List<MittausData>)obj;
+                ApplyChanges();
+                MessageBox.Show("Tiedot onnistuneesti deserialisoitu tiedostosta " + txtFileName.Text);
             }
             catch (Exception ex)
             {

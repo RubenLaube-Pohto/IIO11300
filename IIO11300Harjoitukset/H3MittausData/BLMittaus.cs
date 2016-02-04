@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace JAMK.IT.IIO11300
 {
+    [Serializable]
     public class MittausData
     {
         #region VARIABLES
