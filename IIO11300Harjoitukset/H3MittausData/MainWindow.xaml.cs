@@ -1,5 +1,5 @@
 ﻿/*
- * Created: 28.1.2016
+ * Created: 28.1.2016 Modified: 04.02.2016
  * Author: Ruben Laube-Pohto
  */
 using System;
@@ -25,6 +25,8 @@ namespace H3MittausData
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Luodaan lista mittaus-olioita varten.
+        List<MittausData> measureds;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,13 +36,22 @@ namespace H3MittausData
         {
             //omat ikkunaan liittyvät alustukset
             txtToday.Text = DateTime.Today.ToShortDateString();
+            measureds = new List<MittausData>();
         }
 
         private void btnSaveData_Click(object sender, RoutedEventArgs e)
         {
             //luodaan uusi mittausdata olio ja näytetään se käyttäjälle
             MittausData md = new MittausData(txtClock.Text, txtData.Text);
-            lbData.Items.Add(md);
+            // lbData.Items.Add(md); // testausta varten
+            measureds.Add(md);
+            ApplyChanges();
+        }
+
+        private void ApplyChanges()
+        {
+            lbData.ItemsSource = null;
+            lbData.ItemsSource = measureds;
         }
     }
 }
