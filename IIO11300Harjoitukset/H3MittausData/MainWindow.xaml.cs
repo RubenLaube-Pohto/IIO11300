@@ -53,5 +53,18 @@ namespace H3MittausData
             lbData.ItemsSource = null;
             lbData.ItemsSource = measureds;
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MittausData.SaveToFile(txtFileName.Text, measureds);
+                MessageBox.Show("Tiedot tallennettu onnistuneesti tiedostoon " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

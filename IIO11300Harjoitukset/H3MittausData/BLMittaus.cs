@@ -1,9 +1,10 @@
 ﻿/*
- * Created: 28.1.2016
+ * Created: 28.1.2016 Modified 04.02.2016
  * Author: Ruben Laube-Pohto
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,11 +42,48 @@ namespace JAMK.IT.IIO11300
             this.mittaus = mdata;
         }
         #endregion
+        #region METHODS
         //ylikirjoitetaan ToString
         public override string ToString()
         {
             //return base.ToString();
             return kello + "=" + mittaus;
         }
+        // Tiedoston käsittely metodit
+        public static void SaveToFile(string filename, List<MittausData> data)
+        {
+            StreamWriter sw = null;
+
+            try
+            {
+                sw = File.AppendText(filename);
+                
+                foreach (MittausData md in data)
+                {
+                    sw.WriteLine(md);
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                try
+                {
+                    if (sw != null)
+                    {
+                        sw.Close();
+                    }
+                }
+                catch (EncoderFallbackException ex)
+                {
+                    throw;
+                }
+            }
+           
+            sw.Close();
+        }
+        #endregion
     }
 }

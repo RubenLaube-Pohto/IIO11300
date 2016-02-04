@@ -15,18 +15,19 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Tänään on:"/>
-                            <TextBlock x:Name="txtToday"/>
+                            <TextBlock x:Name="txtToday" Margin="5,0,0,0"/>
                             <TextBlock Text="Tiedostonimi:" Margin="10,0,0,0"/>
                             <TextBox x:Name="txtFileName" Text="d:\temp\testi.txt"/>
+                            <Button x:Name="btnSave"  Content="Save" Margin="10,0,0,0" Click="btnSave_Click"></Button>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <TextBlock Text="klo:" />
                             <TextBox x:Name="txtClock" Width="60"/>
                             <TextBlock Text="mittaustulos:" />
                             <TextBox x:Name="txtData" Width="60"/>
                             <Button x:Name="btnSaveData" Content="New data" Margin="10,0,0,0" Click="btnSaveData_Click"/>
                         </StackPanel>
-                        <StackPanel>
+                        <StackPanel Margin="0,5,0,0">
                             <ListBox Name="lbData" />
                         </StackPanel>
                     </StackPanel>
