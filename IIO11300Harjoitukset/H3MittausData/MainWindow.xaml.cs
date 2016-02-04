@@ -80,5 +80,15 @@ namespace H3MittausData
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnSerialize_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeserialize_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
