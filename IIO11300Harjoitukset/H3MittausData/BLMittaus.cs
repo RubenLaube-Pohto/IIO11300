@@ -47,7 +47,7 @@ namespace JAMK.IT.IIO11300
         public override string ToString()
         {
             //return base.ToString();
-            return kello + " = " + mittaus;
+            return kello + "=" + mittaus;
         }
         // Tiedoston käsittely metodit
         public static void SaveToFile(string filename, List<MittausData> data)
@@ -57,7 +57,7 @@ namespace JAMK.IT.IIO11300
             try
             {
                 sw = File.AppendText(filename);
-                
+
                 foreach (MittausData md in data)
                 {
                     sw.WriteLine(md);
@@ -70,15 +70,57 @@ namespace JAMK.IT.IIO11300
                     if (sw != null)
                     {
                         sw.Close();
+                        sw.Dispose();
                     }
                 }
-                catch (EncoderFallbackException e)
+                catch
                 {
                     throw;
                 }
             }
-           
-            sw.Close();
+        }
+        public static void SaveToFileV2(string filename, List<MittausData> data)
+        {
+            using (StreamWriter sw = File.AppendText(filename))
+            {
+                foreach (MittausData md in data)
+                {
+                    sw.WriteLine(md);
+                }
+            }
+        }
+        public static List<MittausData> LoadFromFile(string filename)
+        {
+            try
+            {
+                if(File.Exists(filename))
+                {
+                    MittausData md;
+                    List<MittausData> read = new List<MittausData>();
+                    string rivi = "";
+                    StreamReader sr = File.OpenText(filename);
+
+                    while ((rivi = sr.ReadLine()) != null)
+                    {
+                        if (rivi.Length > 3 && rivi.Contains("="))
+                        {
+                            string[] split = rivi.Split(new char[] { '=' });
+                            md = new MittausData(split[0], split[1]);
+                            read.Add(md);
+                        }
+                    }
+                    sr.Close();
+                    return read;
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
         #endregion
     }

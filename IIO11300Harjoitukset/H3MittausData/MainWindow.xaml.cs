@@ -58,8 +58,22 @@ namespace H3MittausData
         {
             try
             {
-                MittausData.SaveToFile(txtFileName.Text, measureds);
+                MittausData.SaveToFileV2(txtFileName.Text, measureds);
                 MessageBox.Show("Tiedot tallennettu onnistuneesti tiedostoon " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                measureds = MittausData.LoadFromFile(txtFileName.Text);
+                ApplyChanges();
+                MessageBox.Show("Tiedot luettu onnistuneesti tiedostosta " + txtFileName.Text);
             }
             catch (Exception ex)
             {
