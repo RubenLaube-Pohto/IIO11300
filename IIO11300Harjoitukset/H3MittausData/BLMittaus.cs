@@ -47,7 +47,7 @@ namespace JAMK.IT.IIO11300
         public override string ToString()
         {
             //return base.ToString();
-            return kello + "=" + mittaus;
+            return kello + " = " + mittaus;
         }
         // Tiedoston käsittely metodit
         public static void SaveToFile(string filename, List<MittausData> data)
@@ -63,10 +63,6 @@ namespace JAMK.IT.IIO11300
                     sw.WriteLine(md);
                 }
             }
-            catch (Exception e)
-            {
-                throw;
-            }
             finally
             {
                 try
@@ -76,7 +72,7 @@ namespace JAMK.IT.IIO11300
                         sw.Close();
                     }
                 }
-                catch (EncoderFallbackException ex)
+                catch (EncoderFallbackException e)
                 {
                     throw;
                 }
