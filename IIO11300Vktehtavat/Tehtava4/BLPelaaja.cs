@@ -54,6 +54,10 @@ namespace Tehtava4
         }
         #endregion
         #region METHODS
+        public override string ToString()
+        {
+            return DisplayName;
+        }
         #endregion
     }
 }

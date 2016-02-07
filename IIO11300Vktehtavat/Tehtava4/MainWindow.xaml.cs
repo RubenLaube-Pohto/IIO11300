@@ -26,6 +26,7 @@ namespace Tehtava4
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Pelaaja> players;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,6 +34,8 @@ namespace Tehtava4
         }
         public void Init()
         {
+            players = new List<Pelaaja>();
+
             string[] teams =
             {
                 "Blues",
@@ -53,11 +56,35 @@ namespace Tehtava4
             };
 
             cmbTeam.ItemsSource = teams;
+            UpdateDisplay();
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void btnCreate_New_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string firstName = tbFirst_Name.Text;
+                string lastName = tbLast_Name.Text;
+                string team = cmbTeam.Text;
+                double transferCost = double.Parse(tbTransfer_Cost.Text);
+
+                players.Add(new Pelaaja(firstName, lastName, team, transferCost));
+                UpdateDisplay();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void UpdateDisplay()
+        {
+            lbPlayers.ItemsSource = null;
+            lbPlayers.ItemsSource = players;
         }
     }
 }
