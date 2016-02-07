@@ -20,7 +20,7 @@
                         <TextBox x:Name="tbFirst_Name" Margin="0,0,0,5"></TextBox>
                         <TextBox x:Name="tbLast_Name" Margin="0,0,0,5"></TextBox>
                         <TextBox x:Name="tbTransfer_Cost" Margin="0,0,0,5"></TextBox>
-                        <TextBox x:Name="tbTeam" Margin="0,0,0,5"></TextBox>
+                        <ComboBox x:Name="cmbTeam" Margin="0,0,0,5"></ComboBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Margin="0,0,5,0">
