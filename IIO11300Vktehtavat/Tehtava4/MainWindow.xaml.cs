@@ -57,6 +57,8 @@ namespace Tehtava4
 
             cmbTeam.ItemsSource = teams;
             UpdateDisplay();
+
+            sbiStatus.Content = "Program loaded successfully";
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
@@ -79,6 +81,7 @@ namespace Tehtava4
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                sbiStatus.Content = ex.Message;
             }
         }
         private void UpdateDisplay()
