@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="SM-liiga" Height="350" Width="450">
     <Grid>
-        
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                    <StackPanel Margin="0,0,5,0">
+                        <TextBlock Text="Etunimi" Margin="0,0,0,8"></TextBlock>
+                        <TextBlock Text="Sukunimi" Margin="0,0,0,8"></TextBlock>
+                        <TextBlock Text="Siirtohinta" Margin="0,0,0,6"></TextBlock>
+                        <TextBlock Text="Seura" Margin="0,0,0,5"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0" MinWidth="100">
+                        <TextBox x:Name="tbFirst_Name" Margin="0,0,0,5"></TextBox>
+                        <TextBox x:Name="tbLast_Name" Margin="0,0,0,5"></TextBox>
+                        <TextBox x:Name="tbTransfer_Cost" Margin="0,0,0,5"></TextBox>
+                        <TextBox x:Name="tbTeam" Margin="0,0,0,5"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="0,0,5,0">
+                    <Button x:Name="btnCreate_New" Content="Luo uusi pelaaja" Margin="0,0,0,5"></Button>
+                    <Button x:Name="btnSave_Player" Content="Talleta pelaaja" Margin="0,0,0,5"></Button>
+                    <Button x:Name="btnRemove_Player" Content="Poista pelaaja" Margin="0,0,0,5"></Button>
+                    <Button x:Name="btnSave_To_File" Content="Kirjoita pelaajat" Margin="0,0,0,5"></Button>
+                    <Button x:Name="btnQuit" Content="Lopetus" Margin="0,0,0,5"></Button>
+                </StackPanel>
+                <StackPanel>
+                    <ListBox MinWidth="150" MinHeight="120"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StatusBar x:Name="sbStatus"></StatusBar>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
