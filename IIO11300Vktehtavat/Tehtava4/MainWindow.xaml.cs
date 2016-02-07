@@ -54,5 +54,10 @@ namespace Tehtava4
 
             cmbTeam.ItemsSource = teams;
         }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

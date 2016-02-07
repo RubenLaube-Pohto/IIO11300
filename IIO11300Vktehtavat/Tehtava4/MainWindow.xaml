@@ -28,7 +28,7 @@
                     <Button x:Name="btnSave_Player" Content="Talleta pelaaja" Margin="0,0,0,5"></Button>
                     <Button x:Name="btnRemove_Player" Content="Poista pelaaja" Margin="0,0,0,5"></Button>
                     <Button x:Name="btnSave_To_File" Content="Kirjoita pelaajat" Margin="0,0,0,5"></Button>
-                    <Button x:Name="btnQuit" Content="Lopetus" Margin="0,0,0,5"></Button>
+                    <Button x:Name="btnQuit" Content="Lopetus" Margin="0,0,0,5" Click="btnQuit_Click"></Button>
                 </StackPanel>
                 <StackPanel>
                     <ListBox MinWidth="150" MinHeight="120"/>
