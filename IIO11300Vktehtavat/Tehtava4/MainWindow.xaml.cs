@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Weekly Task 4
+ * Created: 07.02.2016
+ * Author: Ruben Laube-Pohto
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +29,30 @@ namespace Tehtava4
         public MainWindow()
         {
             InitializeComponent();
+            Init();
+        }
+        public void Init()
+        {
+            string[] teams =
+            {
+                "Blues",
+                "HIFK",
+                "HPK",
+                "Ilves",
+                "JYP",
+                "KalPa",
+                "KooKoo",
+                "Kärpät",
+                "Lukko",
+                "Pelicans",
+                "SaiPa",
+                "Sport",
+                "Tappara",
+                "TPS",
+                "Ässät"
+            };
+
+            cmbTeam.ItemsSource = teams;
         }
     }
 }
