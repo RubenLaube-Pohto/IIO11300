@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Tehtava4
 {
-    class Pelaaja
+    public class Pelaaja
     {
         #region VARIABLES
         private string firstName;
