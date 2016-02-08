@@ -36,6 +36,7 @@ namespace Tehtava4
         public void Init()
         {
             players = new List<Pelaaja>();
+            txtStatus.Text = "";
 
             string[] teams =
             {
@@ -57,9 +58,13 @@ namespace Tehtava4
             };
 
             cmbTeam.ItemsSource = teams;
+            try
+            {
+                players = Serialization.DeSerialisoiXml(FILENAME);
+                txtStatus.Text = "Players loaded from file " + FILENAME;
+            }
+            catch { }
             UpdateDisplay();
-
-            txtStatus.Text = "Program loaded successfully";
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
