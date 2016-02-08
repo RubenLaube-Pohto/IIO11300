@@ -26,6 +26,7 @@ namespace Tehtava4
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string FILENAME = "E:\\liiga.xml";
         private List<Pelaaja> players;
         public MainWindow()
         {
@@ -166,6 +167,12 @@ namespace Tehtava4
             {
                 txtStatus.Text = "Can't save. No player selected.";
             }
+        }
+
+        private void btnSave_To_File_Click(object sender, RoutedEventArgs e)
+        {
+            Serialization.SerialisoiXml(FILENAME, players);
+            txtStatus.Text = "Players saved to file " + FILENAME;
         }
     }
 }

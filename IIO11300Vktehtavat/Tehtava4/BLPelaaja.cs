@@ -45,6 +45,13 @@ namespace Tehtava4
         public string DisplayName { get { return firstName + " " + lastName + ", " + team; } }
         #endregion
         #region CONSTRUCTORS
+        public Pelaaja()
+        {
+            this.firstName = "";
+            this.lastName = "";
+            this.team = "";
+            this.transferCost = 0;
+        }
         public Pelaaja(string firstName, string lastName, string team, double transferCost)
         {
             this.firstName = firstName;
