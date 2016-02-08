@@ -139,5 +139,33 @@ namespace Tehtava4
                 txtStatus.Text = "Can't remove. No player selected.";
             }
         }
+
+        private void btnSave_Player_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbPlayers.SelectedItem != null)
+            {
+                try
+                {
+                    Pelaaja player = (Pelaaja)lbPlayers.SelectedItem;
+
+                    // Tehdään tämä ensin, koska voi epäonnistua. Silloin ei tehdä muitakaan päivityksiä.
+                    player.TransferCost = double.Parse(tbTransfer_Cost.Text);
+                    player.FirstName = tbFirst_Name.Text;
+                    player.LastName = tbLast_Name.Text;
+                    player.Team = cmbTeam.Text;
+
+                    UpdateDisplay();
+                    txtStatus.Text = "Player saved.";
+                }
+                catch (Exception ex)
+                {
+                    txtStatus.Text = ex.Message;
+                }
+            }
+            else
+            {
+                txtStatus.Text = "Can't save. No player selected.";
+            }
+        }
     }
 }
