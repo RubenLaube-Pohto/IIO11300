@@ -86,6 +86,7 @@ namespace Tehtava4
                 {
                     players.Add(player);
                     UpdateDisplay();
+                    txtStatus.Text = "Player added.";
                 }
             }
             catch (Exception ex)
@@ -114,12 +115,29 @@ namespace Tehtava4
 
         private void lbPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Pelaaja player = (Pelaaja)((ListBox)sender).SelectedItem;
+            if (((ListBox)sender).SelectedItem != null)
+            {
+                Pelaaja player = (Pelaaja)((ListBox)sender).SelectedItem;
 
-            tbFirst_Name.Text = player.FirstName;
-            tbLast_Name.Text = player.LastName;
-            cmbTeam.Text = player.Team;
-            tbTransfer_Cost.Text = player.TransferCost.ToString();
+                tbFirst_Name.Text = player.FirstName;
+                tbLast_Name.Text = player.LastName;
+                cmbTeam.Text = player.Team;
+                tbTransfer_Cost.Text = player.TransferCost.ToString(); 
+            }
+        }
+
+        private void btnRemove_Player_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbPlayers.SelectedItem != null)
+            {
+                players.Remove((Pelaaja)lbPlayers.SelectedItem);
+                UpdateDisplay();
+                txtStatus.Text = "Player removed.";
+            }
+            else
+            {
+                txtStatus.Text = "Can't remove. No player selected.";
+            }
         }
     }
 }
