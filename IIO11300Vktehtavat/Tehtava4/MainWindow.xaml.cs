@@ -93,11 +93,13 @@ namespace Tehtava4
                 txtStatus.Text = ex.Message;
             }
         }
+
         private void UpdateDisplay()
         {
             lbPlayers.ItemsSource = null;
             lbPlayers.ItemsSource = players;
         }
+
         private bool IsInPlayers(ref Pelaaja p1)
         {
             foreach (Pelaaja p2 in players)
@@ -108,6 +110,16 @@ namespace Tehtava4
                 }
             }
             return false;
+        }
+
+        private void lbPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Pelaaja player = (Pelaaja)((ListBox)sender).SelectedItem;
+
+            tbFirst_Name.Text = player.FirstName;
+            tbLast_Name.Text = player.LastName;
+            cmbTeam.Text = player.Team;
+            tbTransfer_Cost.Text = player.TransferCost.ToString();
         }
     }
 }
