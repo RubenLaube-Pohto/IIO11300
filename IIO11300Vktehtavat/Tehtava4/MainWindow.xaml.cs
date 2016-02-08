@@ -76,8 +76,17 @@ namespace Tehtava4
                 string team = cmbTeam.Text;
                 double transferCost = double.Parse(tbTransfer_Cost.Text);
 
-                players.Add(new Pelaaja(firstName, lastName, team, transferCost));
-                UpdateDisplay();
+                Pelaaja player = new Pelaaja(firstName, lastName, team, transferCost);
+
+                if (IsInPlayers(ref player))
+                {
+                    throw new Exception("Player is already in the database.");
+                }
+                else
+                {
+                    players.Add(player);
+                    UpdateDisplay();
+                }
             }
             catch (Exception ex)
             {
@@ -88,6 +97,17 @@ namespace Tehtava4
         {
             lbPlayers.ItemsSource = null;
             lbPlayers.ItemsSource = players;
+        }
+        private bool IsInPlayers(ref Pelaaja p1)
+        {
+            foreach (Pelaaja p2 in players)
+            {
+                if (p1.FullName == p2.FullName)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
