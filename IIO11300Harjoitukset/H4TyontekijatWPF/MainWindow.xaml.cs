@@ -39,5 +39,17 @@ namespace H4TyontekijatWPF
                 MessageBox.Show(ex.Message);
             }
         }
+        private int CountWorkers()
+        {
+            int n = 0;
+            // TODO
+            return n;
+        }
+        private decimal CalculateSalarySum()
+        {
+            decimal sum = 0;
+            // TODO
+            return sum;
+        }
     }
 }
