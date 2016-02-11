@@ -22,6 +22,7 @@ namespace H4TyontekijatWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        XElement xe;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,8 +32,9 @@ namespace H4TyontekijatWPF
             try
             {
                 const string FILENAME = "D:\\H8871\\Työntekijät2013.xml"; // Siirretään App.config:in myöhemmin
-                XElement xe = XElement.Load(FILENAME);
+                xe = XElement.Load(FILENAME);
                 dgData.DataContext = xe.Elements("tyontekija");
+                tbMessage.Text = string.Format("Työntekijöitä {0} ja palkat yhteensä {1}.", CountWorkers(), CalculateSalarySum());
             }
             catch (Exception ex)
             {
@@ -42,13 +44,17 @@ namespace H4TyontekijatWPF
         private int CountWorkers()
         {
             int n = 0;
-            // TODO
+            foreach (XElement el in xe.Elements("tyontekija"))
+            {
+                n++;
+            }
             return n;
         }
         private decimal CalculateSalarySum()
         {
             decimal sum = 0;
             // TODO
+
             return sum;
         }
     }
