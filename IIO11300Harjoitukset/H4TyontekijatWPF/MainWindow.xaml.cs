@@ -34,7 +34,7 @@ namespace H4TyontekijatWPF
                 const string FILENAME = "D:\\H8871\\Työntekijät2013.xml"; // Siirretään App.config:in myöhemmin
                 xe = XElement.Load(FILENAME);
                 dgData.DataContext = xe.Elements("tyontekija");
-                tbMessage.Text = string.Format("Työntekijöitä {0} ja palkat yhteensä {1}.", CountWorkers(), CalculateSalarySum());
+                tbMessage.Text = string.Format("Työntekijöitä {0} ja palkat yhteensä {1} €.", CountWorkers(), CalculateSalarySum());
             }
             catch (Exception ex)
             {
@@ -53,8 +53,13 @@ namespace H4TyontekijatWPF
         private decimal CalculateSalarySum()
         {
             decimal sum = 0;
-            // TODO
-
+            foreach (XElement el1 in xe.Elements("tyontekija"))
+            {
+                foreach (XElement el2 in el1.Elements("palkka"))
+                {
+                    sum += Convert.ToDecimal(el2.Value);
+                }
+            }
             return sum;
         }
     }
