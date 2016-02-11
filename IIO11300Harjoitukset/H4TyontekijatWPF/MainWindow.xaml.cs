@@ -34,7 +34,8 @@ namespace H4TyontekijatWPF
                 const string FILENAME = "D:\\H8871\\Työntekijät2013.xml"; // Siirretään App.config:in myöhemmin
                 xe = XElement.Load(FILENAME);
                 dgData.DataContext = xe.Elements("tyontekija");
-                tbMessage.Text = string.Format("Työntekijöitä {0} ja palkat yhteensä {1} €.", CountWorkers(), CalculateSalarySum());
+                tbMessage.Text = string.Format("Vakituisia työntekijöitä {0} ja joiden palkat yhteensä {1:0.00} €.",
+                                                CountWorkers("vakituinen"), CalculateSalarySum("vakituinen"));
             }
             catch (Exception ex)
             {
@@ -50,6 +51,15 @@ namespace H4TyontekijatWPF
             }
             return n;
         }
+        private int CountWorkers(string type)
+        {
+            // LINQ-kysely
+            var temp = from ele
+                       in xe.Elements("tyontekija")
+                       where ele.Element("tyosuhde").Value == type
+                       select ele.Element("sukunimi");
+            return temp.Count();
+        }
         private decimal CalculateSalarySum()
         {
             decimal sum = 0;
@@ -59,6 +69,21 @@ namespace H4TyontekijatWPF
                 {
                     sum += Convert.ToDecimal(el2.Value);
                 }
+            }
+            return sum;
+        }
+        private decimal CalculateSalarySum(string type)
+        {
+            decimal sum = 0;
+            // LINQ-kysely
+            var palkat = from ele
+                         in xe.Elements()
+                         where ele.Element("tyosuhde").Value == type
+                         select ele.Element("palkka").Value;
+            foreach (var item in palkat)
+            {
+                // System.Diagnostics.Debug.Print(item.ToString()); // Debugaukseen
+                sum += Convert.ToDecimal(item);
             }
             return sum;
         }

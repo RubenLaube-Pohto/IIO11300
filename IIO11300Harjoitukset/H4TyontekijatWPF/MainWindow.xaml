@@ -13,6 +13,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Etunimi" Binding="{Binding Path=Element[etunimi].Value}"/>
                     <DataGridTextColumn Header="Sukunimi" Binding="{Binding Path=Element[sukunimi].Value}"/>
+                    <DataGridTextColumn Header="Työsuhde" Binding="{Binding Path=Element[tyosuhde].Value}"/>
                     <DataGridTextColumn Header="Palkka €/kk" Binding="{Binding Path=Element[palkka].Value}"/>
                 </DataGrid.Columns>
             </DataGrid>
