@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:H4TyontekijatWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Akun tehdas - palkanlaskenta" Height="350" Width="525">
     <Grid>
-        
+        <StackPanel>
+            <Button x:Name="btnReadXML" Content="Hae työntekijätiedot"></Button>
+            <DataGrid x:Name="dgData" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Etunimi" Binding="{Binding Path=Element[etunimi].Value}"/>
+                    <DataGridTextColumn Header="Sukunimi" Binding="{Binding Path=Element[sukunimi].Value}"/>
+                    <DataGridTextColumn Header="Palkka €/kk" Binding="{Binding Path=Element[palkka].Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
