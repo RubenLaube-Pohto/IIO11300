@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace H4TyontekijatWPF
 {
@@ -23,6 +25,19 @@ namespace H4TyontekijatWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void btnReadXML_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                const string FILENAME = "D:\\H8871\\Työntekijät2013.xml"; // Siirretään App.config:in myöhemmin
+                XElement xe = XElement.Load(FILENAME);
+                dgData.DataContext = xe.Elements("tyontekija");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

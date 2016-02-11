@@ -8,7 +8,7 @@
         Title="Akun tehdas - palkanlaskenta" Height="350" Width="525">
     <Grid>
         <StackPanel>
-            <Button x:Name="btnReadXML" Content="Hae työntekijätiedot"></Button>
+            <Button x:Name="btnReadXML" Content="Hae työntekijätiedot" Click="btnReadXML_Click"></Button>
             <DataGrid x:Name="dgData" ItemsSource="{Binding}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Etunimi" Binding="{Binding Path=Element[etunimi].Value}"/>
