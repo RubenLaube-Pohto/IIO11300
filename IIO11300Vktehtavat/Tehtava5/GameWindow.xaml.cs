@@ -27,11 +27,11 @@ namespace Tehtava5
         {
             InitializeComponent();
             timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick); // Liitetään toiminto, joka tehdään
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, noin 60 fps
+            timer.Tick += new EventHandler(timer_Tick); // Add the method to run at every tick
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, about 60 fps
             timer.Start();
 
-            snake = new Snake();
+            snake = new Snake(this.Width / 2, this.Height / 2); // Start at center
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -39,24 +39,24 @@ namespace Tehtava5
             System.Diagnostics.Debug.Print("tick");
         }
 
-        private void paintSnake(Point currentposition)
+        private void paintSnake()
         {
             Ellipse newEllipse = new Ellipse();
             newEllipse.Fill = snake.Color;
             newEllipse.Width = snake.Size;
             newEllipse.Height = snake.Size;
 
-            Canvas.SetTop(newEllipse, currentposition.Y);
-            Canvas.SetLeft(newEllipse, currentposition.X);
+            Canvas.SetTop(newEllipse, snake.Position.Y);
+            Canvas.SetLeft(newEllipse, snake.Position.X);
 
-            int count = paintCanvas.Children.Count;
-            paintCanvas.Children.Add(newEllipse);
-            snakePoints.Add(currentposition);
+            int count = cnvCanvas.Children.Count;
+            cnvCanvas.Children.Add(newEllipse);
+            snakePoints.Add(snake.Position);
 
             // Restrict the tail of the snake
             if (count > length)
             {
-                paintCanvas.Children.RemoveAt(count - length + 9);
+                cnvCanvas.Children.RemoveAt(count - length + 9);
                 snakePoints.RemoveAt(count - length);
             }
         }
