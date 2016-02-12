@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="SnakeWPF" Height="203.258" Width="214.66">
     <Grid>
-        <StackPanel>
-            <Button x:Name="btnStart" Content="New Snake Game"/>
-            <Button x:Name="btnHighscores" Content="Highscores"/>
-            <Button x:Name="btnQuit" Content="Quit"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <Button x:Name="btnStart" Content="New Snake Game" Margin="0,0,0,10"/>
+            <Button x:Name="btnHighscores" Content="Highscores" Margin="0,0,0,10"/>
+            <Button x:Name="btnQuit" Content="Quit" Click="btnQuit_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -24,5 +24,10 @@ namespace Tehtava5
         {
             InitializeComponent();
         }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
