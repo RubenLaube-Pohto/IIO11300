@@ -26,12 +26,21 @@ namespace Tehtava5
 
         private void KeyPressed(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.P)
+            switch (e.Key)
             {
-                MainWindow main = new MainWindow();
-                Application.Current.MainWindow = main;
-                this.Close();
-                main.Show();
+                case Key.Escape:
+                    {
+                        MainWindow main = new MainWindow();
+                        Application.Current.MainWindow = main;
+                        this.Close();
+                        main.Show();
+                    }
+                    break;
+                default:
+                    {
+
+                    }
+                    break;
             }
         }
     }
