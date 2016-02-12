@@ -23,5 +23,16 @@ namespace Tehtava5
         {
             InitializeComponent();
         }
+
+        private void KeyPressed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.P)
+            {
+                MainWindow main = new MainWindow();
+                Application.Current.MainWindow = main;
+                this.Close();
+                main.Show();
+            }
+        }
     }
 }

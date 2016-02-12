@@ -29,5 +29,13 @@ namespace Tehtava5
         {
             Application.Current.Shutdown();
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow game = new GameWindow();
+            Application.Current.MainWindow = game;
+            this.Close();
+            game.Show();
+        }
     }
 }
