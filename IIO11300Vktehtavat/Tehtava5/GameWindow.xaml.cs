@@ -20,10 +20,11 @@ namespace Tehtava5
     /// </summary>
     public partial class GameWindow : Window
     {
+        private DispatcherTimer timer;
         public GameWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
+            timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_Tick); // Liitetään toiminto, joka tehdään
             timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, noin 60 fps
             timer.Start();
@@ -31,7 +32,7 @@ namespace Tehtava5
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            System.Diagnostics.Debug.Print("tick");
         }
 
         private void KeyPressed(object sender, KeyEventArgs e)
@@ -41,10 +42,26 @@ namespace Tehtava5
                 // Exit to main menu
                 case Key.Escape:
                     {
+                        timer.Stop();
+                        timer = null;
                         MainWindow main = new MainWindow();
                         Application.Current.MainWindow = main;
                         this.Close();
                         main.Show();
+                    }
+                    break;
+                case Key.P:
+                    {
+                        if (timer.IsEnabled)
+                        {
+                            timer.Stop();
+                            this.Title = "Paused";
+                        }
+                        else
+                        {
+                            timer.Start();
+                            this.Title = "GameWindow";
+                        }
                     }
                     break;
             }
