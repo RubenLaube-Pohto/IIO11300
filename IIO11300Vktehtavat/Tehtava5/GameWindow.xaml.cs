@@ -36,7 +36,8 @@ namespace Tehtava5
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.Print("tick");
+            snake.Move();
+            paintSnake();
         }
 
         private void paintSnake()
@@ -51,13 +52,14 @@ namespace Tehtava5
 
             int count = cnvCanvas.Children.Count;
             cnvCanvas.Children.Add(newEllipse);
-            snakePoints.Add(snake.Position);
+            snake.SaveCurrentPosition();
 
             // Restrict the tail of the snake
-            if (count > length)
+            if (count > snake.Length)
             {
-                cnvCanvas.Children.RemoveAt(count - length + 9);
-                snakePoints.RemoveAt(count - length);
+                // index is i = count - snake.Length + NUMBER_OF_BONUSES - 1
+                cnvCanvas.Children.RemoveAt(count - snake.Length - 1);
+                snake.RemoveFromTail();
             }
         }
 
@@ -76,6 +78,7 @@ namespace Tehtava5
                         main.Show();
                     }
                     break;
+                // Pause / Unpause
                 case Key.P:
                     {
                         if (timer.IsEnabled)
@@ -88,6 +91,30 @@ namespace Tehtava5
                             timer.Start();
                             this.Title = "GameWindow";
                         }
+                    }
+                    break;
+                case Key.Up:
+                    {
+                        if (snake.Direction != (int)MovementDirection.Down)
+                            snake.Direction = (int)MovementDirection.Up;
+                    }
+                    break;
+                case Key.Down:
+                    {
+                        if (snake.Direction != (int)MovementDirection.Up)
+                            snake.Direction = (int)MovementDirection.Down;
+                    }
+                    break;
+                case Key.Left:
+                    {
+                        if (snake.Direction != (int)MovementDirection.Right)
+                            snake.Direction = (int)MovementDirection.Left;
+                    }
+                    break;
+                case Key.Right:
+                    {
+                        if (snake.Direction != (int)MovementDirection.Left)
+                            snake.Direction = (int)MovementDirection.Right;
                     }
                     break;
                 default: { } break;
