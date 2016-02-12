@@ -21,6 +21,8 @@ namespace Tehtava5
     public partial class GameWindow : Window
     {
         private DispatcherTimer timer;
+        private Snake snake;
+
         public GameWindow()
         {
             InitializeComponent();
@@ -28,11 +30,35 @@ namespace Tehtava5
             timer.Tick += new EventHandler(timer_Tick); // Liitetään toiminto, joka tehdään
             timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, noin 60 fps
             timer.Start();
+
+            snake = new Snake();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.Print("tick");
+        }
+
+        private void paintSnake(Point currentposition)
+        {
+            Ellipse newEllipse = new Ellipse();
+            newEllipse.Fill = snake.Color;
+            newEllipse.Width = snake.Size;
+            newEllipse.Height = snake.Size;
+
+            Canvas.SetTop(newEllipse, currentposition.Y);
+            Canvas.SetLeft(newEllipse, currentposition.X);
+
+            int count = paintCanvas.Children.Count;
+            paintCanvas.Children.Add(newEllipse);
+            snakePoints.Add(currentposition);
+
+            // Restrict the tail of the snake
+            if (count > length)
+            {
+                paintCanvas.Children.RemoveAt(count - length + 9);
+                snakePoints.RemoveAt(count - length);
+            }
         }
 
         private void KeyPressed(object sender, KeyEventArgs e)
@@ -64,6 +90,7 @@ namespace Tehtava5
                         }
                     }
                     break;
+                default: { } break;
             }
         }
     }
