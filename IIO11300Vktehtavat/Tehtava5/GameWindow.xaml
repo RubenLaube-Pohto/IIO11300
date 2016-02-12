@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="GameWindow" Height="480" Width="640" KeyDown="KeyPressed" ResizeMode="CanMinimize">
     <Grid>
-        <Canvas x:Name="cnvCanvas"/>
+        <Canvas x:Name="cnvCanvas" Background="Black"/>
     </Grid>
 </Window>
