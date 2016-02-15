@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava5"
         mc:Ignorable="d"
-        Title="GameWindow" Height="480" Width="640" KeyDown="KeyPressed" ResizeMode="CanMinimize">
+        Title="GameWindow" KeyDown="KeyPressed" ResizeMode="CanMinimize" Width="645" Height="508">
     <Grid>
-        <Canvas x:Name="cnvCanvas" Background="Black"/>
+        <Canvas x:Name="cnvCanvas" Background="Black" Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

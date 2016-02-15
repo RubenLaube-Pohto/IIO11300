@@ -20,8 +20,11 @@ namespace Tehtava5
     /// </summary>
     public partial class GameWindow : Window
     {
+        const int NUM_OF_BONUSES = 10;
         private DispatcherTimer timer;
         private Snake snake;
+        private List<Point> bonusPoints;
+        private Random rnd;
 
         public GameWindow()
         {
@@ -31,13 +34,70 @@ namespace Tehtava5
             timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, about 60 fps
             timer.Start();
 
-            snake = new Snake(this.Width / 2, this.Height / 2); // Start at center
+            rnd = new Random();
+            snake = new Snake(cnvCanvas.Width / 2, cnvCanvas.Height / 2); // Start at center
+            bonusPoints = new List<Point>();
+            for (int n = 0; n < NUM_OF_BONUSES; n++)
+            {
+                paintBonus(n);
+            }
+
+            System.Diagnostics.Debug.Print(cnvCanvas.Width.ToString());
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             snake.Move();
             paintSnake();
+
+            // Restrict to boundaries of the Canvas
+            if ((snake.Position.X < 0) || (snake.Position.X > cnvCanvas.Width - snake.Size * 2) ||
+                (snake.Position.Y < 0) || (snake.Position.Y > cnvCanvas.Height - snake.Size * 2))
+                GameOver();
+
+            // Hitting a bonus Point causes the lengthen-Snake Effect
+            int n = 0;
+            foreach (Point point in bonusPoints)
+            {
+
+                if ((Math.Abs(point.X - snake.Position.X) < snake.Size) &&
+                    (Math.Abs(point.Y - snake.Position.Y) < snake.Size))
+                {
+                    snake.Length += 10;
+                    snake.Speed += 0.5;
+                    //score += 10;
+
+                    // In the case of food consumption, erase the food object
+                    // from the list of bonuses as well as from the canvas
+                    bonusPoints.RemoveAt(n);
+                    cnvCanvas.Children.RemoveAt(n);
+                    paintBonus(n);
+                    break;
+                }
+                n++;
+            }
+
+            // Restrict hits to body of Snake
+            for (int q = 0; q < (snake.Points.Count - snake.Size * 2); q++)
+            {
+                Point point = new Point(snake.Points.ElementAt(q).X, snake.Points.ElementAt(q).Y);
+                if ((Math.Abs(point.X - snake.Position.X) < (snake.Size)) &&
+                     (Math.Abs(point.Y - snake.Position.Y) < (snake.Size)))
+                {
+                    GameOver();
+                    break;
+                }
+            }
+        }
+
+        private void GameOver()
+        {
+            timer.Stop();
+            timer = null;
+            MainWindow main = new MainWindow();
+            Application.Current.MainWindow = main;
+            this.Close();
+            main.Show();
         }
 
         private void paintSnake()
@@ -58,9 +118,24 @@ namespace Tehtava5
             if (count > snake.Length)
             {
                 // index is i = count - snake.Length + NUMBER_OF_BONUSES - 1
-                cnvCanvas.Children.RemoveAt(count - snake.Length - 1);
+                cnvCanvas.Children.RemoveAt(count - snake.Length + NUM_OF_BONUSES - 1);
                 snake.RemoveFromTail();
             }
+        }
+
+        private void paintBonus(int index)
+        {
+            Point bonusPoint = new Point(rnd.Next(5, 620), rnd.Next(5, 380));
+
+            Ellipse newEllipse = new Ellipse();
+            newEllipse.Fill = Brushes.Red;
+            newEllipse.Width = snake.Size;
+            newEllipse.Height = snake.Size;
+
+            Canvas.SetTop(newEllipse, bonusPoint.Y);
+            Canvas.SetLeft(newEllipse, bonusPoint.X);
+            cnvCanvas.Children.Insert(index, newEllipse);
+            bonusPoints.Insert(index, bonusPoint);
         }
 
         private void KeyPressed(object sender, KeyEventArgs e)

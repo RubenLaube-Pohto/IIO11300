@@ -58,6 +58,10 @@ namespace Tehtava5
             get { return this.speed; }
             set { this.speed = value; }
         }
+        public Queue<Point> Points
+        {
+            get { return this.points; }
+        }
         #endregion
         #region CONSTRUCTORS
         public Snake(double x, double y)
@@ -68,7 +72,7 @@ namespace Tehtava5
             this.size = 10;
             this.length = 10;
             this.direction = (int)MovementDirection.Right;
-            this.speed = 1.0;
+            this.speed = 5.0;
             points = new Queue<Point>();
         }
         #endregion
