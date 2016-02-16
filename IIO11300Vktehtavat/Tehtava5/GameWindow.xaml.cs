@@ -20,11 +20,12 @@ namespace Tehtava5
     /// </summary>
     public partial class GameWindow : Window
     {
-        const int NUM_OF_BONUSES = 10;
+        const int NUM_OF_BONUSES = 20;
         private DispatcherTimer timer;
         private Snake snake;
         private List<Point> bonusPoints;
         private Random rnd;
+        private int score;
 
         public GameWindow()
         {
@@ -34,6 +35,8 @@ namespace Tehtava5
             timer.Interval = new TimeSpan(0, 0, 0, 0, 17); // 17 ms, about 60 fps
             timer.Start();
 
+            score = 0;
+            this.Title = "Bonus points: " + score.ToString();
             rnd = new Random();
             snake = new Snake(cnvCanvas.Width / 2, cnvCanvas.Height / 2); // Start at center
             bonusPoints = new List<Point>();
@@ -65,7 +68,8 @@ namespace Tehtava5
                 {
                     snake.Length += 10;
                     snake.Speed += 0.5;
-                    //score += 10;
+                    score++;
+                    this.Title = "Bonus points: " + score.ToString();
 
                     // In the case of food consumption, erase the food object
                     // from the list of bonuses as well as from the canvas
@@ -114,11 +118,11 @@ namespace Tehtava5
             cnvCanvas.Children.Add(newEllipse);
             snake.SaveCurrentPosition();
 
-            // Restrict the tail of the snake
-            if (count > snake.Length)
+            // Restrict the tail of the snake by checking how many objects are being drawn
+            if (count > (snake.Length + NUM_OF_BONUSES))
             {
-                // index is i = count - snake.Length + NUMBER_OF_BONUSES - 1
-                cnvCanvas.Children.RemoveAt(count - snake.Length + NUM_OF_BONUSES - 1);
+                // Bonuses are drawn first and then the snake from tail to head
+                cnvCanvas.Children.RemoveAt(NUM_OF_BONUSES);
                 snake.RemoveFromTail();
             }
         }
@@ -164,7 +168,7 @@ namespace Tehtava5
                         else
                         {
                             timer.Start();
-                            this.Title = "GameWindow";
+                            this.Title = "Bonus points: " + score.ToString();
                         }
                     }
                     break;

@@ -72,7 +72,7 @@ namespace Tehtava5
             this.size = 10;
             this.length = 10;
             this.direction = (int)MovementDirection.Right;
-            this.speed = 5.0;
+            this.speed = 1.0;
             points = new Queue<Point>();
         }
         #endregion
