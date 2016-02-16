@@ -98,6 +98,7 @@ namespace Tehtava5
         {
             timer.Stop();
             timer = null;
+            MessageBox.Show("Peli ohi! Sait " + score + " pistettä.");
             MainWindow main = new MainWindow();
             Application.Current.MainWindow = main;
             this.Close();

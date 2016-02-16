@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
             <Button x:Name="btnStart" Content="New Snake Game" Margin="0,0,0,10" Click="btnStart_Click"/>
-            <Button x:Name="btnHighscores" Content="Highscores" Margin="0,0,0,10"/>
+            <Button x:Name="btnHighscores" Content="Highscores" Margin="0,0,0,10" IsEnabled="False"/>
             <Button x:Name="btnQuit" Content="Quit" Click="btnQuit_Click"/>
         </StackPanel>
     </Grid>
