@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Based on http://www.codeproject.com/Articles/353671/A-Simple-Snake-Game-in-WPF
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
