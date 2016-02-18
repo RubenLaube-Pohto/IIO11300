@@ -29,5 +29,11 @@ namespace H5Movies
         {
             Application.Current.Shutdown();
         }
+
+        private void btnOpenMovies1_Click(object sender, RoutedEventArgs e)
+        {
+            Movies1 win = new Movies1();
+            win.ShowDialog(); // Modaalinen eli ei voi käyttää pääikkunaa ennen kuin uusi ikkuna suljetaan
+        }
     }
 }
