@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="Esan Elokuvagalleria 1" Height="300" Width="300">
     <Grid>
-        
+        <Grid.Resources>
+            <XmlDataProvider x:Key="MovieData" Source="D\\H8871\\Movies.xml" XPath="Movies/Movie"/>
+        </Grid.Resources>
+        <DataGrid DataContext="{StaticResource MovieData}" 
+                  ItemsSource="{Binding XPath=/Movies/Movie}" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Elokuva" Binding="{Binding XPath=@Name}"/>
+                <DataGridTextColumn Header="Ohjaaja" Binding="{Binding XPath=@Director}"/>
+                <DataGridTextColumn Header="Maa" Binding="{Binding XPath=@Country}"/>
+                <DataGridCheckBoxColumn Header="Katsottu" Binding="{Binding XPath=@Checked}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
