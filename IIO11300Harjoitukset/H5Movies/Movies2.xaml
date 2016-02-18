@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:H5Movies"
         mc:Ignorable="d"
         Title="Esan Elokuvagalleria 2" Height="300" Width="300">
+    <Window.Resources>
+        <!-- Malli tiedon esittämistä varten -->
+        <DataTemplate x:Key="movieName">
+            <Label Content="{Binding XPath=@Name}" Width="200" Background="LightBlue" FontSize="18"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.DataContext>
+            <XmlDataProvider x:Name="xdpMovies" Source="D:\H8871\Movies.xml" XPath="Movies/Movie"/>
+        </Grid.DataContext>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <ListBox x:Name="lbMovies" 
+                         Height="350"
+                         ItemsSource="{Binding}" 
+                         ItemTemplate="{StaticResource movieName}" 
+                         SelectionMode="Single"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+            </StackPanel>
+            <StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
