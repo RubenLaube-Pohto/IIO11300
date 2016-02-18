@@ -10,7 +10,7 @@
         <StackPanel>
             <TextBlock HorizontalAlignment="Center">Esan elokuvagalleriat</TextBlock>
             <Button x:Name="btnOpenMovies1" Content="Simppeli elokuvagalleria" Click="btnOpenMovies1_Click"/>
-            <Button x:Name="btnOpenMovies2" Content="Hiottu elokuvagalleria"/>
+            <Button x:Name="btnOpenMovies2" Content="Hiottu elokuvagalleria" Click="btnOpenMovies2_Click"/>
             <Button x:Name="btnClose" Content="Sulje" Click="btnClose_Click"/>
         </StackPanel>
     </Grid>

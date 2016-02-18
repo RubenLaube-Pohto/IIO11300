@@ -35,5 +35,11 @@ namespace H5Movies
             Movies1 win = new Movies1();
             win.ShowDialog(); // Modaalinen eli ei voi käyttää pääikkunaa ennen kuin uusi ikkuna suljetaan
         }
+
+        private void btnOpenMovies2_Click(object sender, RoutedEventArgs e)
+        {
+            Movies2 win = new Movies2();
+            win.ShowDialog();
+        }
     }
 }
