@@ -23,5 +23,16 @@ namespace H5Movies
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            string file = xdpMovies.Source.LocalPath;
+            xdpMovies.Document.Save(file);
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

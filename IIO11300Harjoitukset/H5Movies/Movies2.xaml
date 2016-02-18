@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:H5Movies"
         mc:Ignorable="d"
-        Title="Esan Elokuvagalleria 2" Height="300" Width="300">
+        Title="Esan Elokuvagalleria 2" Height="370" Width="500">
     <Window.Resources>
         <!-- Malli tiedon esittämistä varten -->
         <DataTemplate x:Key="movieName">
@@ -22,11 +22,20 @@
                          Height="350"
                          ItemsSource="{Binding}" 
                          ItemTemplate="{StaticResource movieName}" 
-                         SelectionMode="Single"
+                         IsSynchronizedWithCurrentItem="True" 
+                         SelectionMode="Single" 
                          ScrollViewer.VerticalScrollBarVisibility="Visible"/>
             </StackPanel>
             <StackPanel>
-                
+                <TextBlock>Elokuvat</TextBlock>
+                <TextBox x:Name="txtName" Text="{Binding XPath=@Name}" FontSize="20"/>
+                <TextBlock>Ohjaaja</TextBlock>
+                <TextBox x:Name="txtDirector" Text="{Binding XPath=@Director}" FontSize="20"/>
+                <TextBlock>Maa</TextBlock>
+                <TextBox x:Name="txtCountry" Text="{Binding XPath=@Country}" FontSize="20"/>
+                <CheckBox IsChecked="{Binding XPath=@Checked}"/>
+                <Button x:Name="btnCreate" Content="Lisää uusi" Click="btnCreate_Click"/>
+                <Button x:Name="btnSave" Content="Tallenna muutokset" Click="btnSave_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
