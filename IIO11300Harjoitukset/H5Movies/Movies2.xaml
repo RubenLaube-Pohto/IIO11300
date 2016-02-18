@@ -36,6 +36,7 @@
                 <CheckBox x:Name="chkIsSeen" IsChecked="{Binding XPath=@Checked}"/>
                 <Button x:Name="btnCreate" Content="Lisää uusi" Click="btnCreate_Click"/>
                 <Button x:Name="btnSave" Content="Tallenna muutokset" Click="btnSave_Click"/>
+                <Button x:Name="btnDelete" Content="Poista" Click="btnDelete_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

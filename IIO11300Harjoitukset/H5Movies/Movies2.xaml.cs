@@ -79,5 +79,34 @@ namespace H5Movies
                 }
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string file = xdpMovies.Source.LocalPath;
+                XmlDocument doc = xdpMovies.Document;
+                XmlNode root = doc.SelectSingleNode("/Movies");
+                XmlNode nodeToDel = null;
+
+                var item = doc.SelectSingleNode(string.Format("/Movies/Movie[@Name='{0}']", txtName.Text));
+
+                if (item != null && MessageBox.Show("Poistetaanko " + txtName.Text + "?", "Galleria", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    nodeToDel = item;
+                }
+
+                if (nodeToDel != null)
+                {
+                    root.RemoveChild(nodeToDel);
+                    xdpMovies.Document.Save(file);
+                    lbMovies.SelectedIndex = -1;
+                }
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
