@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:H5Movies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Valikko" Height="129.93" Width="248.898">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center">Esan elokuvagalleriat</TextBlock>
+            <Button x:Name="btnOpenMovies1" Content="Simppeli elokuvagalleria"/>
+            <Button x:Name="btnOpenMovies2" Content="Hiottu elokuvagalleria"/>
+            <Button x:Name="btnClose" Content="Sulje" Click="btnClose_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
