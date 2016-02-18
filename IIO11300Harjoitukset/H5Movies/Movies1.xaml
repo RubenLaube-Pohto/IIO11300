@@ -8,11 +8,11 @@
         Title="Esan Elokuvagalleria 1" Height="300" Width="300">
     <Grid>
         <Grid.Resources>
-            <XmlDataProvider x:Key="MovieData" Source="D\\H8871\\Movies.xml" XPath="Movies/Movie"/>
+            <XmlDataProvider x:Key="MovieData" Source="D:\\H8871\\Movies.xml" XPath="Movies/Movie"/>
         </Grid.Resources>
         <DataGrid DataContext="{StaticResource MovieData}" 
                   ItemsSource="{Binding XPath=/Movies/Movie}" 
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" AlternatingRowBackground="#FFA4D857">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Elokuva" Binding="{Binding XPath=@Name}"/>
                 <DataGridTextColumn Header="Ohjaaja" Binding="{Binding XPath=@Director}"/>
