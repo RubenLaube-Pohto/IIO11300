@@ -19,12 +19,12 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel>
                 <ListBox x:Name="lbMovies" 
-                         Height="350"
                          ItemsSource="{Binding}" 
                          ItemTemplate="{StaticResource movieName}" 
                          IsSynchronizedWithCurrentItem="True" 
                          SelectionMode="Single" 
-                         ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                         MaxHeight="330"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock>Elokuvat</TextBlock>
@@ -33,7 +33,7 @@
                 <TextBox x:Name="txtDirector" Text="{Binding XPath=@Director}" FontSize="20"/>
                 <TextBlock>Maa</TextBlock>
                 <TextBox x:Name="txtCountry" Text="{Binding XPath=@Country}" FontSize="20"/>
-                <CheckBox IsChecked="{Binding XPath=@Checked}"/>
+                <CheckBox x:Name="chkIsSeen" IsChecked="{Binding XPath=@Checked}"/>
                 <Button x:Name="btnCreate" Content="Lisää uusi" Click="btnCreate_Click"/>
                 <Button x:Name="btnSave" Content="Tallenna muutokset" Click="btnSave_Click"/>
             </StackPanel>

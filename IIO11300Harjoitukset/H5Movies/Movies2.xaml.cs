@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace H5Movies
 {
@@ -32,7 +33,51 @@ namespace H5Movies
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+            if (lbMovies.SelectedIndex >= 0)
+            {
+                lbMovies.SelectedIndex = -1; // -1 kun listasta ei valittuna mitään
+                btnCreate.Content = "Tallenna uusi";
+            }
+            else
+            {
+                try
+                {
+                    string file = xdpMovies.Source.LocalPath;
 
+                    XmlDocument doc = xdpMovies.Document;
+                    XmlNode root = doc.SelectSingleNode("/Movies");
+                    XmlNode newMovie = doc.CreateElement("Movie");
+
+                    XmlAttribute xaName = doc.CreateAttribute("Name");
+                    XmlAttribute xaDirector = doc.CreateAttribute("Director");
+                    XmlAttribute xaCountry = doc.CreateAttribute("Country");
+                    XmlAttribute xaChecked = doc.CreateAttribute("Checked");
+
+                    xaName.Value = txtName.Text;
+                    xaDirector.Value = txtDirector.Text;
+                    xaCountry.Value = txtCountry.Text;
+                    xaChecked.Value = chkIsSeen.IsChecked.ToString();
+
+                    newMovie.Attributes.Append(xaName);
+                    newMovie.Attributes.Append(xaDirector);
+                    newMovie.Attributes.Append(xaCountry);
+                    newMovie.Attributes.Append(xaChecked);
+
+                    root.AppendChild(newMovie);
+
+                    xdpMovies.Document.Save(file);
+                    MessageBox.Show("Uusi elokuva lisätty!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    btnCreate.Content = "Lisää uusi";
+                    lbMovies.SelectedIndex = lbMovies.Items.Count - 1;
+                }
+            }
         }
     }
 }
