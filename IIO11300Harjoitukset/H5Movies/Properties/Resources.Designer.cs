@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace H5Movies.Properties
-{
-
-
+namespace H5Movies.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,56 @@ namespace H5Movies.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("H5Movies.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;Movies xmlns=&quot;&quot;&gt;
+        ///  &lt;Movie Name=&quot;The Godfather&quot; Country=&quot;USA&quot; Director=&quot;Francis Ford Coppola&quot; Checked=&quot;true&quot;/&gt;
+        ///  &lt;Movie Name=&quot;Seven Samurai&quot; Country=&quot;Japan&quot; Director=&quot;Akira Kurosawa&quot; Checked=&quot;false&quot; /&gt;
+        ///  &lt;Movie Name=&quot;Happy Together&quot; Country=&quot;China&quot; Director=&quot;Wong Kar Wai&quot; Checked=&quot;false&quot;/&gt;
+        ///  &lt;Movie Name=&quot;Shoot The Piano Player&quot; Country=&quot;France&quot; Director=&quot;Francois Truffaut&quot; Checked=&quot;false&quot;/&gt;
+        ///  &lt;Movie Name=&quot;Roshomon&quot; Country=&quot;Japan&quot; Director=&quot;Akira Kurosawa&quot; Check [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Movies {
+            get {
+                return ResourceManager.GetString("Movies", resourceCulture);
             }
         }
     }
