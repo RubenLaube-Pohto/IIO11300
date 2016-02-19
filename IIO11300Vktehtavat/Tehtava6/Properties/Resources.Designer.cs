@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tehtava6.Properties
-{
-
-
+namespace Tehtava6.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,57 @@ namespace Tehtava6.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tehtava6.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;  standalone=&quot;yes&quot;?&gt;
+        ///&lt;viinikellari&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Fume Blanc&lt;/nimi&gt;&lt;maa&gt;France&lt;/maa&gt;&lt;arvio&gt;10&lt;/arvio&gt; &lt;/wine&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Côtes du Rhône&lt;/nimi&gt;&lt;maa&gt;France&lt;/maa&gt;&lt;arvio&gt;5&lt;/arvio&gt; &lt;/wine&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Liebfraumilch&lt;/nimi&gt;&lt;maa&gt;Germany&lt;/maa&gt;&lt;arvio&gt;3&lt;/arvio&gt; &lt;/wine&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Gato Negro Merlot&lt;/nimi&gt;&lt;maa&gt;Chile&lt;/maa&gt;&lt;arvio&gt;5&lt;/arvio&gt; &lt;/wine&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Gato Negro Cabernet Sauvignon&lt;/nimi&gt;&lt;maa&gt;Chile&lt;/maa&gt;&lt;arvio&gt;8&lt;/arvio&gt; &lt;/wine&gt;
+        ///&lt;wine&gt; &lt;nimi&gt;Feteasca&lt;/nimi&gt;&lt;maa&gt;Romanie [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Viinit1 {
+            get {
+                return ResourceManager.GetString("Viinit1", resourceCulture);
             }
         }
     }
