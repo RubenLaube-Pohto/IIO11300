@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace Tehtava6
 {
@@ -23,6 +24,17 @@ namespace Tehtava6
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                // Get the element from xaml
+                XmlDataProvider xdpWineData = (XmlDataProvider)this.FindResource("WineData");
+                // Set source from app.config
+                xdpWineData.Source = new Uri(ConfigurationManager.AppSettings["File"]);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }

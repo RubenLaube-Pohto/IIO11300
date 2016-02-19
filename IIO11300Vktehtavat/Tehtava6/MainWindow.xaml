@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Tehtava6"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <XmlDataProvider x:Key="WineData" XPath="viinikellari/wine"/>
+    </Window.Resources>
     <Grid>
-        <Grid.Resources>
-            <XmlDataProvider x:Key="WineData" Source="E:\Downloads\Viinit1.xml" XPath="viinikellari/wine"/>
-        </Grid.Resources>
         <DataGrid DataContext="{StaticResource WineData}" 
                   ItemsSource="{Binding XPath=/viinikellari/wine}" 
                   AutoGenerateColumns="False">
