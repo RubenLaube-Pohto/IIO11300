@@ -21,9 +21,13 @@ namespace Tehtava6
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnFetch_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
                 // Get the element from xaml
@@ -31,9 +35,9 @@ namespace Tehtava6
                 // Set source from app.config. Accepts absolute or relative uri.
                 xdpWineData.Source = new Uri(ConfigurationManager.AppSettings["File"], UriKind.RelativeOrAbsolute);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(ex.Message);
             }
         }
     }

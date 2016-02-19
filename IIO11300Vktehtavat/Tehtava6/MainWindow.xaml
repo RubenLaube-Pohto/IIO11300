@@ -12,7 +12,7 @@
     <Grid>
         <DockPanel Margin="10">
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
-                <Button x:Name="btnFetch" Content="Hae viinit"/>
+                <Button x:Name="btnFetch" Content="Hae viinit" Click="btnFetch_Click"/>
                 <ComboBox Margin="10,0,0,0"/>
             </StackPanel>
             <DataGrid DataContext="{StaticResource WineData}" 
