@@ -24,6 +24,7 @@ namespace Tehtava6
        public MainWindow()
         {
             InitializeComponent();
+            txtFilePath.Text = ConfigurationManager.AppSettings["File"];
         }
 
         private void btnFetch_Click(object sender, RoutedEventArgs e)
@@ -33,7 +34,7 @@ namespace Tehtava6
                 // Get the element from xaml
                 XmlDataProvider xdpWineData = (XmlDataProvider)this.FindResource("WineData");
                 // Set source from app.config. Accepts absolute or relative uri.
-                xdpWineData.Source = new Uri(ConfigurationManager.AppSettings["File"], UriKind.RelativeOrAbsolute);
+                xdpWineData.Source = new Uri(txtFilePath.Text, UriKind.RelativeOrAbsolute);
             }
             catch (Exception ex)
             {

@@ -13,7 +13,7 @@
         <DockPanel Margin="10">
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
                 <Button x:Name="btnFetch" Content="Hae viinit" Click="btnFetch_Click"/>
-                <ComboBox Margin="10,0,0,0"/>
+                <ComboBox x:Name="cbCountry" Margin="10,0,0,0"/>
             </StackPanel>
             <DataGrid DataContext="{StaticResource WineData}" 
                       ItemsSource="{Binding XPath=/viinikellari/wine}" 
@@ -25,7 +25,11 @@
                     <DataGridTextColumn Header="Arvio" Binding="{Binding XPath=./arvio}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock DockPanel.Dock="Bottom" Text="File Path" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txtFilePath"
+                       Text="File Path"
+                       DockPanel.Dock="Bottom"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left"/>
         </DockPanel>
     </Grid>
 </Window>
