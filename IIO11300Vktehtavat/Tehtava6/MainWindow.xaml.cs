@@ -28,8 +28,8 @@ namespace Tehtava6
             {
                 // Get the element from xaml
                 XmlDataProvider xdpWineData = (XmlDataProvider)this.FindResource("WineData");
-                // Set source from app.config
-                xdpWineData.Source = new Uri(ConfigurationManager.AppSettings["File"]);
+                // Set source from app.config. Accepts absolute or relative uri.
+                xdpWineData.Source = new Uri(ConfigurationManager.AppSettings["File"], UriKind.RelativeOrAbsolute);
             }
             catch (Exception e)
             {
