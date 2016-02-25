@@ -9,14 +9,14 @@
     <Grid>
         <StackPanel>
             <TextBlock FontSize="16">Tarkastettava salasana:</TextBlock>
-            <TextBox x:Name="txtPassword" FontSize="16"/>
+            <TextBox x:Name="txtPassword" FontSize="16" TextChanged="txtPassword_TextChanged"/>
             <!-- <PasswordBox x:Name="pwbPassword"/> -->
             <TextBlock x:Name="txtLength" FontSize="16">. . .</TextBlock>
             <TextBlock x:Name="txtUppercase" FontSize="16">. . .</TextBlock>
             <TextBlock x:Name="txtLowercase" FontSize="16">. . .</TextBlock>
             <TextBlock x:Name="txtNumbers" FontSize="16">. . .</TextBlock>
             <TextBlock x:Name="txtSpecial" FontSize="16">. . .</TextBlock>
-            <TextBlock FontSize="48" Height="100" Background="LightGray">Anna salasana</TextBlock>
+            <TextBlock x:Name="txtPassword_Strength" FontSize="48" Height="100" Background="LightGray">Anna salasana</TextBlock>
         </StackPanel>
     </Grid>
 </Window>
