@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H5Movies", "..\IIO11300Harj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava6", "Tehtava6\Tehtava6.csproj", "{AB9D868B-D131-40D4-8E1D-9F20240E960E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H6DataBinding", "..\IIO11300Harjoitukset\H6DataBinding\H6DataBinding.csproj", "{9B9CB1D7-D90D-4BC2-BD6C-1124CC489B5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{AB9D868B-D131-40D4-8E1D-9F20240E960E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB9D868B-D131-40D4-8E1D-9F20240E960E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB9D868B-D131-40D4-8E1D-9F20240E960E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9CB1D7-D90D-4BC2-BD6C-1124CC489B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9CB1D7-D90D-4BC2-BD6C-1124CC489B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9CB1D7-D90D-4BC2-BD6C-1124CC489B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9CB1D7-D90D-4BC2-BD6C-1124CC489B5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
