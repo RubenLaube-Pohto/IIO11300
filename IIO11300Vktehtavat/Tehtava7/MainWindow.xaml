@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava7"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="255.808" Width="320.751">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock FontSize="16">Tarkastettava salasana:</TextBlock>
+            <TextBox x:Name="txtPassword" FontSize="16"/>
+            <!-- <PasswordBox x:Name="pwbPassword"/> -->
+            <TextBlock x:Name="txtLength" FontSize="16">. . .</TextBlock>
+            <TextBlock x:Name="txtUppercase" FontSize="16">. . .</TextBlock>
+            <TextBlock x:Name="txtLowercase" FontSize="16">. . .</TextBlock>
+            <TextBlock x:Name="txtNumbers" FontSize="16">. . .</TextBlock>
+            <TextBlock x:Name="txtSpecial" FontSize="16">. . .</TextBlock>
+            <TextBlock FontSize="48" Height="100" Background="LightGray">Anna salasana</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
