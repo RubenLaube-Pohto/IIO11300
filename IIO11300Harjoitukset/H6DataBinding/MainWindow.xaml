@@ -4,9 +4,72 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:H6DataBinding"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:p="clr-namespace:H6DataBinding.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <sys:String x:Key="myApp">Aivan mahtava sovellus v1</sys:String>
+        <x:Array x:Key="myCourses" Type="sys:String">
+            <sys:String>IIO11300 Windows-ohjelmointi</sys:String>
+            <sys:String>IIO11100 Ohjelmistosuunnittelu</sys:String>
+            <sys:String>IIZP1020 Järjestelmäprojekti</sys:String>
+            <sys:String>IIZP1234 Jotain aivan muuta</sys:String>
+        </x:Array>
+    </Window.Resources>
     <Grid>
-        
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Background="{Binding ElementName=cbbColors, 
+                                             Path=SelectedItem.Content, 
+                                             Mode=OneWay}">
+                <!-- textboxin bindauksia erilaisiin lähteisiin -->
+                <TextBlock>Erilaisi databindauksia</TextBlock>
+                <TextBox x:Name="txtName" Width="120" FontSize="18"/>
+                <TextBlock Text="{Binding ElementName=txtName, Path=Text}"/>
+                <TextBlock Text="{Binding ElementName=txtName, 
+                                          Path=Text.Length}"
+                           FontSize="{Binding ElementName=txtName, 
+                                              Path=Text.Length}"/>
+                <TextBlock>Sidonta App.Configiin</TextBlock>
+                <TextBox Text="{Binding Source={x:Static p:Settings.Default}, 
+                                        Path=UserName}"/>
+                <TextBlock>Sidonta staattiseen resurssiin</TextBlock>
+                <TextBlock Text="{Binding Source={StaticResource myApp}}"/>
+                <Button x:Name="btnGetSetting" Content="Hae käyttäjä" 
+                        Click="btnGetSetting_Click"/>
+            </StackPanel>
+            <StackPanel>
+                <!-- erilaisia bindauksia kokoelmiin -->
+                <TextBlock>Comboboxin itemit kovakoodattuna</TextBlock>
+                <ComboBox x:Name="cbbColors">
+                    <ComboBoxItem Content="Azure"/>
+                    <ComboBoxItem Content="Blue"/>
+                    <ComboBoxItem Content="Green"/>
+                    <ComboBoxItem Content="Yellow"/>
+                </ComboBox>
+                <TextBlock>Comboboxin itemit resursseista</TextBlock>
+                <ComboBox x:Name="cbbCourses" 
+                          ItemsSource=
+                              "{Binding Source={StaticResource myCourses}}"/>
+                <TextBox Text="{Binding ElementName=cbbCourses, 
+                                        Path=SelectedItem}"/>
+                <ComboBox x:Name="cbbTeams"/>
+            </StackPanel>
+            <StackPanel x:Name="spLeague" Background="LightBlue">
+                <!-- bindaus oliokokoelmaan -->
+                <TextBlock>Sidonta kokoelmaan</TextBlock>
+                <Button x:Name="btnBind" Content="Sido kokoelmaan"
+                        Click="btnBind_Click"/>
+                <TextBlock Text="{Binding}"/>
+                <TextBox Text="{Binding Path=Name}"/>
+                <TextBox Text="{Binding Path=City}"/>
+                <Button x:Name="btnForward" Content="Eteen"
+                        Click="btnForward_Click"/>
+                <Button x:Name="btnBackward" Content="Taakse"
+                        Click="btnBackward_Click"/>
+                <Button x:Name="btnCreate" Content="Lisää uusi"
+                        Click="btnCreate_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
