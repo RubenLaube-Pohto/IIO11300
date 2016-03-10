@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -31,9 +20,11 @@ namespace Tehtava8
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(Tehtava8.Properties.Settings.Default.Database))
+                using (SqlConnection conn = new SqlConnection(
+                    Tehtava8.Properties.Settings.Default.Database))
                 {
-                    string sql = "SELECT firstname, lastname, address, city FROM vCustomers";
+                    string sql = "SELECT firstname, lastname, address, city " +
+                                 "FROM vCustomers";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable("Wines");
                     da.Fill(dt);
@@ -46,7 +37,8 @@ namespace Tehtava8
             }
         }
 
-        private void lbClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbClients_SelectionChanged(object sender,
+                                                SelectionChangedEventArgs e)
         {
             // There should be only one item in e.AddedItems.
             // Select the first index just to be safe.
