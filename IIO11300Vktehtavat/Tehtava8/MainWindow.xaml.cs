@@ -45,5 +45,12 @@ namespace Tehtava8
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void lbClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // There should be only one item in e.AddedItems.
+            // Select the first index just to be safe.
+            spDetails.DataContext = e.AddedItems[0];
+        }
     }
 }

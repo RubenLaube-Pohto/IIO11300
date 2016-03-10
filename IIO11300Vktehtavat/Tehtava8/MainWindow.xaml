@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="420">
+        Title="ViiniAsiakkaat" Height="400" Width="420">
     <Grid Margin="10">
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="180">
                 <Button x:Name="btnGet_Clients" Content="Hae asiakkaat" Click="btnGet_Clients_Click"/>
-                <ListBox x:Name="lbClients" ItemsSource="{Binding}" DisplayMemberPath="lastname" MaxHeight="300"/>
+                <ListBox x:Name="lbClients" ItemsSource="{Binding}" DisplayMemberPath="lastname" MaxHeight="300" SelectionChanged="lbClients_SelectionChanged"/>
             </StackPanel>
-            <StackPanel Width="179" Margin="10,0,0,0">
+            <StackPanel x:Name="spDetails" Width="179" Margin="10,0,0,0">
                 <TextBlock>Etunimi:</TextBlock>
-                <TextBox x:Name="txtFirstName" Background="LightCoral"/>
+                <TextBox Text="{Binding Path=firstname, Mode=OneWay}" Background="LightCoral"/>
                 <TextBlock>Sukunimi:</TextBlock>
-                <TextBox x:Name="txtLastName" Background="LightCoral"/>
+                <TextBox Text="{Binding Path=lastname, Mode=OneWay}" Background="LightCoral"/>
                 <TextBlock>Osoite:</TextBlock>
-                <TextBox x:Name="txtAddress" Background="LightCoral"/>
+                <TextBox Text="{Binding Path=address, Mode=OneWay}" Background="LightCoral"/>
                 <TextBlock>Kaupunki:</TextBlock>
-                <TextBox x:Name="txtCity" Background="LightCoral"/>
+                <TextBox Text="{Binding Path=city, Mode=OneWay}" Background="LightCoral"/>
             </StackPanel>
         </StackPanel>
     </Grid>
