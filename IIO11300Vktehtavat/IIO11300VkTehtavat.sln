@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H7ADONETConsole", "..\IIO11
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H8ADONETWPF", "..\IIO11300Harjoitukset\H8ADONETWPF\H8ADONETWPF.csproj", "{A887B355-56ED-4923-864D-8958EF05539B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava8", "Tehtava8\Tehtava8.csproj", "{E7D41602-8D35-40D4-9C50-E2ADFD7110A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{A887B355-56ED-4923-864D-8958EF05539B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A887B355-56ED-4923-864D-8958EF05539B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A887B355-56ED-4923-864D-8958EF05539B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D41602-8D35-40D4-9C50-E2ADFD7110A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D41602-8D35-40D4-9C50-E2ADFD7110A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D41602-8D35-40D4-9C50-E2ADFD7110A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D41602-8D35-40D4-9C50-E2ADFD7110A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
