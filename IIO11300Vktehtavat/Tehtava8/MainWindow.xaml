@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tehtava8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="350" Width="420">
+    <Grid Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="180">
+                <Button x:Name="btnGet_Clients" Content="Hae asiakkaat"/>
+                <ListBox x:Name="lbClients" ItemsSource="{Binding}"/>
+            </StackPanel>
+            <StackPanel Width="179" Margin="10,0,0,0">
+                <TextBlock>Etunimi:</TextBlock>
+                <TextBox x:Name="txtFirstName" Background="LightCoral"/>
+                <TextBlock>Sukunimi:</TextBlock>
+                <TextBox x:Name="txtLastName" Background="LightCoral"/>
+                <TextBlock>Osoite:</TextBlock>
+                <TextBox x:Name="txtAddress" Background="LightCoral"/>
+                <TextBlock>Kaupunki:</TextBlock>
+                <TextBox x:Name="txtCity" Background="LightCoral"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
