@@ -26,7 +26,7 @@ namespace Tehtava8
                     string sql = "SELECT firstname, lastname, address, city " +
                                  "FROM vCustomers";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-                    DataTable dt = new DataTable("Wines");
+                    DataTable dt = new DataTable("Customers");
                     da.Fill(dt);
                     lbClients.DataContext = dt;
                 }
