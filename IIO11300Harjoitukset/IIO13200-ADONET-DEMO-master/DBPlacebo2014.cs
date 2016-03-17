@@ -24,14 +24,23 @@ namespace JAMK.ICT.Data
 	  dt.Rows.Add("D9876", "Oksanen", "Sofi");
 	return dt;
 	}
-    public static DataTable GetAllCustomersFromSQLServer(string connectionStr, string taulu, out string viesti)
+    public static DataTable GetAllCustomersFromSQLServer(string connectionStr, string taulu, string cityFilter, out string viesti)
     {
         // basic principle: connect - execute query - disconnect
         try
         {
             SqlConnection myConn = new SqlConnection(connectionStr);
             myConn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM " + taulu, myConn);
+            string sql = "";
+            if (cityFilter != "")
+            {
+                sql = string.Format("SELECT * FROM {0} WHERE city like '{1}'", taulu, cityFilter);
+            }
+            else
+            {
+                sql = "SELECT * FROM " + taulu;
+            }
+            SqlCommand cmd = new SqlCommand(sql, myConn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds, taulu);
@@ -44,5 +53,23 @@ namespace JAMK.ICT.Data
             throw;
         }
     }
+
+        public static DataTable GetCitiesFromSQLServer(string connection, string table)
+        {
+            try
+            {
+                SqlConnection myConn = new SqlConnection(connection);
+                myConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT DISTINCT city FROM " + table, myConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds, table);
+                return ds.Tables[table];
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
   }
 }

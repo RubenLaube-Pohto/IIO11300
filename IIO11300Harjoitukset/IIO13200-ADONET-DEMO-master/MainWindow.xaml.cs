@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JAMK.ICT;
+using JAMK.ICT.Data;
+using System.Data;
 
 namespace JAMK.ICT.ADOBlanco
 {
@@ -21,6 +24,11 @@ namespace JAMK.ICT.ADOBlanco
   /// </summary>
   public partial class MainWindow : Window
   {
+    private string ConnStr;
+    private string TableName;
+    private DataTable dt;
+    private DataView dv;
+
     public MainWindow()
     {
       InitializeComponent();
@@ -29,19 +37,67 @@ namespace JAMK.ICT.ADOBlanco
 
     private void IniMyStuff()
     {
-      //TODO täytetään combobox asiakkaitten maitten nimillä
-      //esimerkki kuinka App.Configissa oleva connectionstring luetaan
-      lbMessages.Content = JAMK.ICT.Properties.Settings.Default.Tietokanta;
+        string message = "";
+        try
+        {
+            //TODO täytetään combobox asiakkaitten maitten nimillä
+            //esimerkki kuinka App.Configissa oleva connectionstring luetaan
+            ConnStr = Properties.Settings.Default.Tietokanta;
+            TableName = Properties.Settings.Default.Taulu;
+            //lbMessages.Content = JAMK.ICT.Properties.Settings.Default.Tietokanta;
+            lbMessages.Content = ConnStr;
+
+            dt = DBPlacebo.GetAllCustomersFromSQLServer(ConnStr, TableName, "", out message);
+            dv = dt.DefaultView;
+
+            FillMyComboV2();
+        }
+        catch (Exception ex)
+        {
+            lbMessages.Content = ex.Message;
+        }
     }
 
-    private void btnGet3_Click(object sender, RoutedEventArgs e)
+    private void FillMyComboV1()
     {
-      //TODO
+        // kaupungit
+        cbCountries.ItemsSource = DBPlacebo.GetCitiesFromSQLServer(ConnStr, TableName).DefaultView;
+        cbCountries.DisplayMemberPath = "city";
+        cbCountries.SelectedValuePath = "city";
+    }
+
+    private void FillMyComboV2()
+    {
+        // LINQ - huom "normi" datatable käytä AsEnumerable()
+        var result = (from c in dt.AsEnumerable()
+                        select c.Field<string>("City")).Distinct().ToList();
+        cbCountries.ItemsSource = result;
+    }
+
+        private void btnGet3_Click(object sender, RoutedEventArgs e)
+    {
+      dgCustomers.ItemsSource = DBPlacebo.GetTestCustomers().DefaultView;
     }
 
     private void btnGetAll_Click(object sender, RoutedEventArgs e)
     {
-      //TODO
+        string message = "";
+        try
+        {
+            //dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(ConnStr, TableName, "", out message).DefaultView;
+            //dt.DefaultView.RowFilter = "";
+            //dgCustomers.ItemsSource = dt.DefaultView;
+            dv.RowFilter = "";
+            dgCustomers.ItemsSource = dv;
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+        finally
+        {
+            lbMessages.Content = message;
+        }
     }
 
     private void btnGetFrom_Click(object sender, RoutedEventArgs e)
@@ -53,6 +109,34 @@ namespace JAMK.ICT.ADOBlanco
         {
             JAMK.ICT.JSON.JSONPlacebo2015 roskaa = new JAMK.ICT.JSON.JSONPlacebo2015();
             MessageBox.Show(roskaa.Yield());
+        }
+
+        private void cbCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // V1 hakee aina uudestaan palvelimelta
+            //string message = "";
+            //string kaupunki = "";
+            //try
+            //{
+            //    if (cbCountries.SelectedIndex>=0)
+            //    {
+            //        kaupunki = cbCountries.SelectedValue.ToString();
+            //        string filter = string.Format("city = '{0}'", kaupunki);
+            //        dt.DefaultView.RowFilter = filter;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    message = ex.Message;
+            //}
+            //finally
+            //{
+            //    lbMessages.Content = message;
+            //}
+            // V2
+            dv.RowFilter = string.Format(
+                "city = '{0}'", cbCountries.SelectedValue.ToString()
+            );
         }
     }
 }
